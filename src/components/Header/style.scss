@@ -27,10 +27,8 @@
     padding: 1rem 0;
   }
   &__title {
-    font-family: utils.$font-title;
     margin: 1rem;
-    font-size: 4rem;
-    font-weight: 700;
+    @include utils.font('l', utils.$neutral-0, 'bold');
     text-align: center;
   }
   &__job {
