@@ -2,18 +2,15 @@
 
 .navbar {
   @include utils.font('l', utils.$neutral-0, 'bold');
+  @include utils.flexbox(row, end, center);
   padding: 15px 20px;
-  display: flex;
-  justify-content: flex-end;
   top: 0;
   width: 100%;
 
   .navbar-container {
     max-width: 1200px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    @include utils.flexbox(row, end, center);
   }
 
   /* Mobile-first styles */
@@ -22,9 +19,7 @@
   }
 
   .burger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include utils.flexbox(column, space-between, center);
     width: 50px;
     height: 30px;
     background: none;

@@ -2,14 +2,10 @@
 
 .header {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include utils.flexbox(column, center, center);
   &__photo-container {
     width: 20rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include utils.flexbox(column, center, center);
     padding: 1rem 0;
     &--photo {
       width: 100%;
@@ -20,10 +16,7 @@
   }
   &__content {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    @include utils.flexbox(column, space-between, center);
     padding: 1rem 0;
   }
   &__title {
@@ -53,10 +46,7 @@
   }
   &__details {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include utils.flexbox(column, center, center);
     margin: 1rem 0;
     &--text {
       margin: 1rem;
@@ -64,9 +54,7 @@
   }
   &__socials {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include utils.flexbox(row, center, center);
     margin: 1rem 0;
     &--icons {
       font-size: 2rem;
