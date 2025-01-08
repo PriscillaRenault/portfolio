@@ -3,9 +3,13 @@
 .navbar {
   @include utils.font('l', utils.$neutral-0, 'bold');
   @include utils.flexbox(row, end, center);
+  position: fixed;
   padding: 15px 20px;
   top: 0;
+  max-width: 1250px;
   width: 100%;
+  background-color: utils.$background;
+  z-index: 10;
 
   .navbar-container {
     max-width: 1200px;
@@ -84,8 +88,9 @@
           color: #fff;
           font-size: 1.5rem;
 
-          &:hover {
-            color: utils.$primary; /* Exemple de couleur lors du hover */
+          &:hover,
+          &.active {
+            color: utils.$primary;
           }
         }
       }
@@ -125,7 +130,8 @@
             font-size: 1.5rem;
             font-family: utils.$font-title;
 
-            &:hover {
+            &:hover,
+            &.active {
               color: utils.$primary;
             }
           }

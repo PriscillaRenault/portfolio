@@ -16,10 +16,7 @@ const Navbar = () => {
         <nav className='desktop-menu'>
           <ul>
             <li>
-              <a href='#home'>Accueil</a>
-            </li>
-            <li>
-              <a href='#about'>A propos de moi</a>
+              <a href='#about'>Présentation</a>
             </li>
             <li>
               <a href='#skills'>Mes compétences</a>
@@ -44,13 +41,8 @@ const Navbar = () => {
         <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
           <ul>
             <li>
-              <a href='#home' onClick={() => setIsOpen(false)}>
-                Accueil
-              </a>
-            </li>
-            <li>
               <a href='#about' onClick={() => setIsOpen(false)}>
-                A propos de moi
+                Présentation
               </a>
             </li>
             <li>

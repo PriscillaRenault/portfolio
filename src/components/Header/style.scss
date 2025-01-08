@@ -18,6 +18,7 @@
     width: 100%;
     @include utils.flexbox(column, space-between, center);
     padding: 1rem 0;
+    margin-top: 5rem;
   }
   &__title {
     margin: 1rem;

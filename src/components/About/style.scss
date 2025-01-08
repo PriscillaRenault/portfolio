@@ -1,0 +1,19 @@
+@use '../../scss/utils/main.scss' as utils;
+
+.about {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+
+  &__content {
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 1.5rem;
+    &--text {
+      margin-bottom: 20px;
+    }
+  }
+}
+.highlight {
+  color: utils.$secondary;
+}
