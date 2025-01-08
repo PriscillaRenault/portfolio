@@ -7,9 +7,9 @@ import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import photoDeMoi from '../../assets/images/moi.jpg';
 const Header = () => {
   return (
-    <header className='header' id='about'>
+    <header className='header'>
       <Navbar />
-      <section className='header__content'>
+      <section className='header__content' id='about'>
         <div className='header__photo-container'>
           <img
             className='header__photo-container--photo'

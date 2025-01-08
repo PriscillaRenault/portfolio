@@ -1,9 +1,32 @@
 import './style.scss';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const handleScroll = () => {
+    const sections = document.querySelectorAll('section');
+    let currentSection = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        currentSection = section.id;
+      }
+    });
+
+    setActiveSection(currentSection);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,16 +39,36 @@ const Navbar = () => {
         <nav className='desktop-menu'>
           <ul>
             <li>
-              <a href='#about'>Présentation</a>
+              <a
+                href='#about'
+                className={activeSection === 'about' ? 'active' : ''}
+              >
+                Présentation
+              </a>
             </li>
             <li>
-              <a href='#skills'>Mes compétences</a>
+              <a
+                href='#skills'
+                className={activeSection === 'skills' ? 'active' : ''}
+              >
+                Compétences
+              </a>
             </li>
             <li>
-              <a href='#skills'>Mes projets</a>
+              <a
+                href='#projects'
+                className={activeSection === 'projects' ? 'active' : ''}
+              >
+                Projets
+              </a>
             </li>
             <li>
-              <a href='#contact'>Contact</a>
+              <a
+                href='#contact'
+                className={activeSection === 'contact' ? 'active' : ''}
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </nav>
@@ -41,22 +84,38 @@ const Navbar = () => {
         <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
           <ul>
             <li>
-              <a href='#about' onClick={() => setIsOpen(false)}>
+              <a
+                href='#about'
+                onClick={() => setIsOpen(false)}
+                className={activeSection === 'about' ? 'active' : ''}
+              >
                 Présentation
               </a>
             </li>
             <li>
-              <a href='#services' onClick={() => setIsOpen(false)}>
-                Mes compétences
+              <a
+                href='#skills'
+                onClick={() => setIsOpen(false)}
+                className={activeSection === 'skills' ? 'active' : ''}
+              >
+                Compétences
               </a>
             </li>
             <li>
-              <a href='#services' onClick={() => setIsOpen(false)}>
-                Mes projets
+              <a
+                href='#projects'
+                onClick={() => setIsOpen(false)}
+                className={activeSection === 'projects' ? 'active' : ''}
+              >
+                Projets
               </a>
             </li>
             <li>
-              <a href='#contact' onClick={() => setIsOpen(false)}>
+              <a
+                href='#contact'
+                onClick={() => setIsOpen(false)}
+                className={activeSection === 'contact' ? 'active' : ''}
+              >
                 Contact
               </a>
             </li>
