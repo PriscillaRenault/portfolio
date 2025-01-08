@@ -1,5 +1,7 @@
 import './style.scss';
 import { useState, useEffect } from 'react';
+import Button from '../Button';
+import CV from '../../assets/files/CV_Priscilla_RENAULT.pdf';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,46 +34,37 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Menu items with CV button included
+  const menuItems = [
+    { id: 'about', label: 'Présentation', type: 'link' },
+    { id: 'skills', label: 'Compétences', type: 'link' },
+    { id: 'projects', label: 'Projets', type: 'link' },
+    { id: 'contact', label: 'Contact', type: 'link' },
+    { id: 'cv', label: 'CV', type: 'button' }, // CV as a button
+  ];
+
+  const renderMenuItems = () =>
+    menuItems.map((item) => (
+      <li key={item.id}>
+        {item.type === 'link' ? (
+          <a
+            href={`#${item.id}`}
+            onClick={() => setIsOpen(false)} // For mobile menu
+            className={activeSection === item.id ? 'active' : ''}
+          >
+            {item.label}
+          </a>
+        ) : item.id === 'cv' ? ( // Vérifie si l'élément est le bouton CV
+          <a href={CV} target='_blank' rel='noreferrer'>
+            <Button Text={item.label} />
+          </a>
+        ) : null}
+      </li>
+    ));
+
   return (
     <div className='navbar'>
-      <div className='navbar-container'>
-        {/* Desktop Navigation */}
-        <nav className='desktop-menu'>
-          <ul>
-            <li>
-              <a
-                href='#about'
-                className={activeSection === 'about' ? 'active' : ''}
-              >
-                Présentation
-              </a>
-            </li>
-            <li>
-              <a
-                href='#skills'
-                className={activeSection === 'skills' ? 'active' : ''}
-              >
-                Compétences
-              </a>
-            </li>
-            <li>
-              <a
-                href='#projects'
-                className={activeSection === 'projects' ? 'active' : ''}
-              >
-                Projets
-              </a>
-            </li>
-            <li>
-              <a
-                href='#contact'
-                className={activeSection === 'contact' ? 'active' : ''}
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <div className='navbar__container'>
         {/* Mobile Navigation */}
         <button
           className={`burger-icon ${isOpen ? 'open' : ''}`}
@@ -82,44 +75,12 @@ const Navbar = () => {
           <span></span>
         </button>
         <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-          <ul>
-            <li>
-              <a
-                href='#about'
-                onClick={() => setIsOpen(false)}
-                className={activeSection === 'about' ? 'active' : ''}
-              >
-                Présentation
-              </a>
-            </li>
-            <li>
-              <a
-                href='#skills'
-                onClick={() => setIsOpen(false)}
-                className={activeSection === 'skills' ? 'active' : ''}
-              >
-                Compétences
-              </a>
-            </li>
-            <li>
-              <a
-                href='#projects'
-                onClick={() => setIsOpen(false)}
-                className={activeSection === 'projects' ? 'active' : ''}
-              >
-                Projets
-              </a>
-            </li>
-            <li>
-              <a
-                href='#contact'
-                onClick={() => setIsOpen(false)}
-                className={activeSection === 'contact' ? 'active' : ''}
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+          <ul>{renderMenuItems()}</ul>
+        </nav>
+
+        {/* Desktop Navigation */}
+        <nav className='desktop-menu'>
+          <ul>{renderMenuItems()}</ul>
         </nav>
       </div>
     </div>

@@ -7,8 +7,7 @@ const skillsValue = [
       React: 80,
       TypeScript: 60,
       HTML5: 95,
-      CSS3: 95,
-      'SASS/SCSS': 80,
+      'CSS3 / SCSS': 95,
       Bootstrap: 80,
     },
   },
@@ -32,8 +31,8 @@ const skillsValue = [
     title: 'Soft Skills',
     skills: {
       'Gestion de projet': 70,
-      Anglais: 70,
       Jira: 80,
+      Anglais: 70,
     },
   },
 ];

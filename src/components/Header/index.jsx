@@ -34,14 +34,17 @@ const Header = () => {
             </p>
           </div>
           <div className='header__socials'>
-            <a href='https://www.linkedin.com/in/priscillarenault/'>
+            <a
+              href='https://www.linkedin.com/in/priscillarenault/'
+              target='_blank'
+            >
               <FontAwesomeIcon
                 icon={faLinkedinIn}
                 className='header__socials--icons'
               />
             </a>
 
-            <a href='https://github.com/PriscillaRenault'>
+            <a href='https://github.com/PriscillaRenault' target='_blank'>
               <FontAwesomeIcon
                 icon={faGithub}
                 className='header__socials--icons'
