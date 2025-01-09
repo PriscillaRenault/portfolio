@@ -1,14 +1,13 @@
 import '../../scss/base/base.scss';
 import './style.scss';
-import Navbar from '../Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import photoDeMoi from '../../assets/images/moi.jpg';
+
 const Header = () => {
   return (
     <header className='header'>
-      <Navbar />
       <section className='header__content' id='about'>
         <div className='header__photo-container'>
           <img
