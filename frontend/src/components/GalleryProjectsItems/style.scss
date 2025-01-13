@@ -1,0 +1,38 @@
+@use '../../scss/utils/main.scss' as utils;
+.project__item {
+  width: 100%;
+  height: 330px;
+  padding: 10px;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &--cover {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  &--title {
+    @include utils.font(m, utils.$neutral-0, bold);
+    max-width: 60%;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 3;
+    line-height: 25px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .project__item {
+    width: calc((100% / 3) - 60px / 4);
+    height: 400px;
+    padding: 20px;
+  }
+}

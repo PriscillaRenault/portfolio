@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1dsdjdfsjkef",
+    "title": "Jeu de dés",
+    "picture": "https://fastly.picsum.photos/id/57/200/200.jpg?hmac=EAluVy04ceTUijEPw3vraS5dkJ6vtBD3HmNwvMI5f3k",
+    "description": "Jeu de dé ou le premier qui cumule 100 points gagne. Si vous faites 1, vous perdez tous vos points. Vous pouvez choisir de garder vos points et de passer le tour à l'autre joueur.",
+    "skills": ["Javascript", "bootstrap"],
+    "github": "https://github.com/PriscillaRenault/DiceGame",
+    "website": "https://priscillarenault.github.io/DiceGame/"
+  },
+  {
+    "id": "2fkzxlzaoqdf",
+    "title": "Kaza",
+    "picture": "https://fastly.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU",
+    "description": "Créer la partie frontend d'une application web de location immobilière",
+    "skills": ["React", "SCSS"],
+    "github": "https://github.com/PriscillaRenault/OC_Project5_Kaza"
+  },
+  {
+    "id": "3fespxfjtdak",
+    "title": "Mon vieux grimoire",
+    "picture": "https://fastly.picsum.photos/id/997/200/200.jpg?hmac=J9wMccIJgdwcAV_BlxcoN1N_oKWGt4Wb8EqkKqp-4gE",
+    "description": "Développer le backend d'un site de Notation de livres",
+    "skills": ["Node.js", "Express", "MongoDB"],
+    "github": "https://github.com/PriscillaRenault/OC_Project6_MonVieuxGrimoire"
+  }
+]
