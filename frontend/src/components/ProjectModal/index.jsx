@@ -1,10 +1,17 @@
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+
 import ProjectInfo from './ProjectInfo';
 import ProjectDetails from './ProjectDetails';
 import Footer from './FooterModal';
 
 const ProjectModal = ({ isOpen, project, onClose }) => {
+  if (!project) {
+    return null; // Si aucun projet n'est sélectionné, ne rien afficher
+  }
+
+  const { title, picture, description, skills, github } = project;
+
   return (
     <Modal
       isOpen={isOpen}
@@ -13,13 +20,9 @@ const ProjectModal = ({ isOpen, project, onClose }) => {
       overlayClassName='modal-overlay'
     >
       <div className='modal-content'>
-        {project && (
-          <>
-            <ProjectInfo />
-            <ProjectDetails />
-            <Footer />
-          </>
-        )}
+        <ProjectInfo title={title} picture={picture} />
+        <ProjectDetails description={description} skills={skills} />
+        <Footer github={github} />
         <button onClick={onClose}>Fermer</button>
       </div>
     </Modal>
@@ -31,4 +34,5 @@ ProjectModal.propTypes = {
   project: PropTypes.object,
   onClose: PropTypes.func.isRequired,
 };
+
 export default ProjectModal;

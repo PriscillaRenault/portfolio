@@ -28,9 +28,7 @@ const GalleryProjects = () => {
             id={id}
             picture={picture}
             title={title}
-            onClick={() =>
-              openModal({ id, picture, title })
-            } /* Passer les données du projet */
+            onClick={() => openModal(id)} /* Passer les données du projet */
           />
         ))}
       </ul>

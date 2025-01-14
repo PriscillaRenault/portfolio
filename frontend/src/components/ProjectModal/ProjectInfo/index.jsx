@@ -6,7 +6,11 @@ const ProjectInfo = ({ title, picture }) => {
     <div className='modal-content'>
       <h3 className='modal-content__title'>{title}</h3>
       {picture && (
-        <img src={picture} alt={title} className='modal-content__image' />
+        <img
+          src={picture}
+          alt='image de {title}'
+          className='modal-content__image'
+        />
       )}
     </div>
   );
