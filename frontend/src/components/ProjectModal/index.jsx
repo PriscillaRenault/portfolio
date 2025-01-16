@@ -10,7 +10,7 @@ const ProjectModal = ({ isOpen, project, onClose }) => {
     return null; // Si aucun projet n'est sélectionné, ne rien afficher
   }
 
-  const { title, picture, description, skills, github } = project;
+  const { title, image, description, skills, github } = project;
 
   return (
     <Modal
@@ -20,7 +20,7 @@ const ProjectModal = ({ isOpen, project, onClose }) => {
       overlayClassName='modal-overlay'
     >
       <div className='modal-content'>
-        <ProjectInfo title={title} picture={picture} />
+        <ProjectInfo title={title} image={image} />
         <ProjectDetails description={description} skills={skills} />
         <Footer github={github} />
         <button onClick={onClose}>Fermer</button>

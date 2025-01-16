@@ -1,0 +1,51 @@
+.Header {
+  font-family: sans-serif;
+  background-color: #0d1224;
+  color: #fff;
+  min-height: 91px;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+    color: #ec4899;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding-inline: 20px;
+      list-style-type: none;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        &.activeLink {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    div {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ul li {
+      padding-block: 20px;
+    }
+  }
+}

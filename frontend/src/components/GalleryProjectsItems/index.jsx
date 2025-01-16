@@ -2,17 +2,12 @@ import '../../data/projects.json';
 import './style.scss';
 import PropTypes from 'prop-types';
 
-const ProjectItem = ({ id, picture, title, onClick }) => {
+const ProjectItem = ({ id, image, title, onClick }) => {
   return (
-    <li
-      key={id}
-      onClick={onClick}
-      className='project__item'
-      data-cover={picture}
-    >
+    <li key={id} onClick={onClick} className='project__item' data-cover={image}>
       <div
         className='project__item--cover'
-        style={{ backgroundImage: `url(${picture})` }}
+        style={{ backgroundImage: `url(${image})` }}
       ></div>
       <h3 className='project__item--title'>{title}</h3>
     </li>
@@ -21,7 +16,7 @@ const ProjectItem = ({ id, picture, title, onClick }) => {
 
 ProjectItem.propTypes = {
   id: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

@@ -22,11 +22,11 @@ const GalleryProjects = () => {
       <div className='border-h2'></div>
 
       <ul className='projects__container'>
-        {projects.map(({ id, picture, title }) => (
+        {projects.map(({ id, image, title }) => (
           <GalleryItem
             key={id}
             id={id}
-            picture={picture}
+            image={image}
             title={title}
             onClick={() => openModal(id)} /* Passer les données du projet */
           />

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const ProjectInfo = ({ title, picture }) => {
+const ProjectInfo = ({ title, image }) => {
   return (
     <div className='modal-content'>
       <h3 className='modal-content__title'>{title}</h3>
-      {picture && (
+      {image && (
         <img
-          src={picture}
+          src={image}
           alt='image de {title}'
           className='modal-content__image'
         />
@@ -18,7 +18,7 @@ const ProjectInfo = ({ title, picture }) => {
 
 ProjectInfo.propTypes = {
   title: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default ProjectInfo;
