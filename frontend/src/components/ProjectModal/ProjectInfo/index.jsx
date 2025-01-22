@@ -3,14 +3,10 @@ import './style.scss';
 
 const ProjectInfo = ({ title, image }) => {
   return (
-    <div className='modal-content'>
-      <h3 className='modal-content__title'>{title}</h3>
+    <div className='info'>
+      <h3 className='info__title'>{title}</h3>
       {image && (
-        <img
-          src={image}
-          alt='image de {title}'
-          className='modal-content__image'
-        />
+        <img src={image} alt={`image de {title}`} className='info__image' />
       )}
     </div>
   );

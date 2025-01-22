@@ -1,37 +1,37 @@
-import Modal from 'react-modal';
 import PropTypes from 'prop-types';
-
 import ProjectInfo from './ProjectInfo';
 import ProjectDetails from './ProjectDetails';
 import Footer from './FooterModal';
+import './style.scss';
 
-const ProjectModal = ({ isOpen, project, onClose }) => {
-  if (!project) {
-    return null; // Si aucun projet n'est sélectionné, ne rien afficher
-  }
+const ProjectModal = ({ project, onClose }) => {
+  // Vérifie que le projet est bien défini
+  if (!project) return null;
 
   const { title, image, description, skills, github } = project;
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      className='modal'
-      overlayClassName='modal-overlay'
-    >
-      <div className='modal-content'>
+    <dialog className='modal'>
+      <div className='modal__content'>
+        <button onClick={onClose} className='modal__content--close'>
+          Fermer
+        </button>
         <ProjectInfo title={title} image={image} />
         <ProjectDetails description={description} skills={skills} />
         <Footer github={github} />
-        <button onClick={onClose}>Fermer</button>
       </div>
-    </Modal>
+    </dialog>
   );
 };
 
 ProjectModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  project: PropTypes.object,
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.string),
+    github: PropTypes.string,
+  }),
   onClose: PropTypes.func.isRequired,
 };
 

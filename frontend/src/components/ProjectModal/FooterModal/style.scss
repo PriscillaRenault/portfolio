@@ -1,0 +1,9 @@
+@use '../../../scss/utils/main.scss' as utils;
+
+.modal-footer {
+  @include utils.font('m', utils.$neutral-0, bold);
+  margin: 1rem 0;
+  :hover {
+    color: utils.$secondary;
+  }
+}

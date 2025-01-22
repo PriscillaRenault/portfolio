@@ -1,0 +1,19 @@
+@use '../../../scss/utils/main.scss' as utils;
+.info {
+  @include utils.flexbox(column, center, center, 2rem);
+  &__title {
+    @include utils.font('m', utils.$secondary, bold);
+    text-transform: uppercase;
+  }
+  &__image {
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
+@media screen and (min-width: 768px) {
+  .info {
+    &__title {
+      @include utils.font('xl', utils.$secondary, bold);
+    }
+  }
+}

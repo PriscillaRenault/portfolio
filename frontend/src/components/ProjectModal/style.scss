@@ -1,0 +1,36 @@
+@use '../../scss/utils/main.scss' as utils;
+.modal {
+  position: fixed; // La position fixe permet de garder la modale visible même en scrollant
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include utils.flexbox(column, center, center, 2rem);
+  z-index: 100;
+  &__content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: utils.$secondary-background;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    @include utils.flexbox(column, center, center, 1rem);
+    position: relative;
+    &--close {
+      cursor: pointer;
+      @include utils.font('m', utils.$neutral-0);
+      background-color: utils.$background;
+      align-self: flex-end;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .modal {
+    &__content {
+      max-width: 50rem;
+    }
+  }
+}

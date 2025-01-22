@@ -1,0 +1,24 @@
+@use '../../../scss/utils/main.scss' as utils;
+.details {
+  @include utils.flexbox(column, center, center, 1rem);
+  &__title {
+    text-transform: uppercase;
+    @include utils.font('m', utils.$neutral-0);
+    margin: 1rem auto;
+    text-align: center;
+  }
+  &__content {
+    @include utils.font('m', utils.$neutral-0);
+    width: 100%;
+    max-width: 20rem;
+    text-align: center;
+    & > * {
+      margin: 1rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .details {
+    @include utils.flexbox(row, center, start, 4rem);
+  }
+}

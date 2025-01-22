@@ -3,7 +3,7 @@ import './style.scss';
 
 const FooterModal = ({ github }) => {
   return (
-    <footer className='footer'>
+    <footer className='modal-footer'>
       <a href={github} target='_blank' rel='noreferrer'>
         {' '}
         Voir sur GitHub

@@ -3,14 +3,19 @@ import './style.scss';
 
 const ProjectDetails = ({ description, skills }) => {
   return (
-    <div className='project-details'>
-      <p>{description}</p>
-      <h4>Technologies utilisées</h4>
-      <ul>
-        {skills.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
+    <div className='details'>
+      <div>
+        <h4 className='details__title'>Description</h4>
+        <p className='details__content'>{description}</p>
+      </div>
+      <div>
+        <h4 className='details__title'>Technologies</h4>
+        <ul className='details__content'>
+          {skills.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,8 @@ import '../../data/projects.json';
 import './style.scss';
 import PropTypes from 'prop-types';
 
-const ProjectItem = ({ id, image, title, onClick }) => {
+const GalleryItem = ({ id, image, title, onClick }) => {
+  console.log(`GalleryItem rendu avec ID: ${id}, onClick:`, onClick);
   return (
     <li key={id} onClick={onClick} className='project__item' data-cover={image}>
       <div
@@ -14,11 +15,11 @@ const ProjectItem = ({ id, image, title, onClick }) => {
   );
 };
 
-ProjectItem.propTypes = {
+GalleryItem.propTypes = {
   id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-export default ProjectItem;
+export default GalleryItem;

@@ -65,12 +65,12 @@
   .mobile-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* Le menu est hors de l'écran à gauche */
-    width: 250px; /* Largeur du menu */
+    right: -100%;
+    width: 250px;
     height: 100%;
-    background-color: utils.$background-burger; /* Arrière-plan du menu */
-    transition: right 0.3s ease-in-out; /* Transition pour le glissement */
-    z-index: 2; /* Assure-toi que le menu se trouve au-dessus du contenu */
+    background-color: utils.$secondary-background;
+    transition: right 0.3s ease-in-out;
+    z-index: 2;
     padding-top: 1rem;
 
     ul {
