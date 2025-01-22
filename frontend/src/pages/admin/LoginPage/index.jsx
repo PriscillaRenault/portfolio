@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const LoginPage = ({ setToken }) => {
   const [email, setEmail] = useState('');
@@ -47,6 +48,10 @@ const LoginPage = ({ setToken }) => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
   );
+};
+
+LoginPage.propTypes = {
+  setToken: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

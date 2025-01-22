@@ -23,14 +23,13 @@ const about = () => {
         <p className='about__content--text'>
           En 2024, j&apos;ai choisi de renforcer mon apprentissage en intégrant
           une formation pour structurer et approfondir mes connaissances. Cette{' '}
-          <span className='highlight'> reconversion </span>
+          <span className='highlight'> reconversion </span> est
           l&apos;aboutissement d&apos;une passion que j&apos;ai décidé de
           transformer en carrière.
         </p>
 
         <p className='about__content--text'>
-          Avant cela, j&apos;ai passé
-          <span className='highlight'>15 ans dans le commerce</span>, dont{' '}
+          Avant cela, j&apos;ai passé 15 ans dans le commerce, dont{' '}
           <span className='highlight'>
             8 comme responsable technico-commerciale
           </span>

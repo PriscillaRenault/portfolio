@@ -7,6 +7,9 @@
   @include utils.flexbox(column, center, center, 1rem, wrap);
 }
 @media screen and (min-width: 768px) {
+  .projects {
+    padding: 2rem;
+  }
   .projects__container {
     @include utils.flexbox(row, center, center, 1rem, wrap);
     max-width: 1000px;
