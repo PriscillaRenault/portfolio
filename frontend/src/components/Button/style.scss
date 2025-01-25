@@ -1,0 +1,11 @@
+@use '../../scss/utils/main.scss' as utils;
+.button {
+  background-color: utils.$secondary;
+  font-family: utils.$font-title;
+  @include utils.font('m', utils.$neutral-0, 'bold');
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  text-shadow: -1px -1px 0 utils.$outline, 1px -1px 0 utils.$outline,
+    -1px 4px 4px utils.$outline, 1px 1px 0 utils.$outline;
+  cursor: pointer;
+}

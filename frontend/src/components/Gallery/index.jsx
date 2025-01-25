@@ -1,21 +1,28 @@
 import './style.scss';
 import { useState, useEffect } from 'react';
-import GalleryItem from '../GalleryItems';
-import projectsData from '../../data/projects.json';
+import PropTypes from 'prop-types';
+import GalleryItem from '../GalleryItem';
+import { fetchProjects } from '../../api';
 import ProjectModal from '../ProjectModal';
 import Modal from 'react-modal';
 
 // Configure ReactModal
 Modal.setAppElement('#root');
 
-const GalleryProjects = () => {
+const Gallery = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setProjects(projectsData);
-    console.log('Projets chargés :', projectsData); // Vérifiez que les données sont chargées
+    const getProjects = async () => {
+      setLoading(true);
+      const data = await fetchProjects();
+      setProjects(data);
+      setLoading(false);
+    };
+    getProjects();
   }, []);
 
   const openModal = (id) => {
@@ -39,16 +46,25 @@ const GalleryProjects = () => {
       <h2>Mes projets</h2>
       <div className='border-h2'></div>
 
+      {loading && <p>Chargement...</p>}
+      {!loading && projects.length === 0 && <p>Aucun projet à afficher</p>}
       <ul className='projects__container'>
-        {projects.map(({ id, image, title }) => (
-          <GalleryItem
-            key={id}
-            id={id}
-            image={image}
-            title={title}
-            onClick={() => openModal(id)}
-          />
-        ))}
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <GalleryItem
+              key={project.id}
+              id={project.id}
+              image={project.image}
+              title={project.title}
+              onClick={() => openModal(project.id)}
+            >
+              {/* Vérifie si children existe et appelle la fonction en passant le projet */}
+              {children && children(project)}
+            </GalleryItem>
+          ))
+        ) : (
+          <p>Aucun projet trouvé.</p>
+        )}
       </ul>
 
       <Modal
@@ -66,4 +82,8 @@ const GalleryProjects = () => {
   );
 };
 
-export default GalleryProjects;
+Gallery.propTypes = {
+  children: PropTypes.func,
+};
+
+export default Gallery;

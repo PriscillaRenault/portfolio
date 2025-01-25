@@ -1,0 +1,84 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../Button';
+import './style.scss';
+
+const LoginForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:4000/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      // Stockage du token dans le localStorage
+      localStorage.setItem('authToken', data.token);
+
+      alert('Connexion réussie !');
+      setEmail('');
+      setPassword('');
+      navigate('/dashboard'); // Redirection vers la page dashboard après connexion
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className='login'>
+      <Button
+        Text='Accueil'
+        onClick={() => navigate('/')}
+        className='login__back-home'
+      />
+      <h2 className='login__title'>Connexion</h2>
+      <form onSubmit={handleLogin}>
+        <div className='login__input'>
+          <label>Email</label>
+          <input
+            type='email'
+            placeholder='Votre email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className='login__input'>
+          <label>Mot de passe</label>
+          <input
+            type='password'
+            placeholder='Votre mot de passe'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        {error && <p className='error-message'>{error}</p>}
+        <button type='submit' disabled={loading}>
+          {loading ? 'Connexion...' : 'Se connecter'}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default LoginForm;

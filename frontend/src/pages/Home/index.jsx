@@ -1,15 +1,17 @@
+import Navbar from '../../components/Navbar';
 import Header from '../../components/Header';
 import About from '../../components/About';
 import Skills from '../../components/Skills';
-import GalleryProjects from '../../components/GalleryProjects';
+import Gallery from '../../components/Gallery';
 
 function Home() {
   return (
     <div>
+      <Navbar />
       <Header />
       <About />
       <Skills />
-      <GalleryProjects />
+      <Gallery />
     </div>
   );
 }

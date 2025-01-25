@@ -6,13 +6,11 @@ require('dotenv').config();
 //Main dependencies
 const express = require('express');
 const bodyParser = require('body-parser');
-const compression = require('compression');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const projectsRoutes = require('./routes/projects');
-const skillsRoutes = require('./routes/skills');
 const userRoutes = require('./routes/user');
+const projectsRoutes = require('./routes/project');
 
 //Connect BDD MongoDB
 mongoose
@@ -23,7 +21,6 @@ mongoose
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(compression());
 
 //CORS Cross Origin Resource Sharing
 app.use((req, res, next) => {
@@ -41,7 +38,6 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/api/projects', projectsRoutes);
-app.use('/api/skills', skillsRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

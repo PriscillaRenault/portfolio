@@ -3,7 +3,7 @@
     "id": "1dsdjdfsjkef",
     "title": "Jeu de dés",
     "image": "https://fastly.picsum.photos/id/57/200/200.jpg?hmac=EAluVy04ceTUijEPw3vraS5dkJ6vtBD3HmNwvMI5f3k",
-    "description": "Jeu de dé ou le premier qui cumule 100 points gagne. Si vous faites 1, vous perdez tous vos points. Vous pouvez choisir de garder vos points et de passer le tour à l'autre joueur.",
+    "description": "Le jeu repose sur une mécanique simple mais efficace, combinant hasard et prise de décision. J'ai développé l'algorithme de jeu en JavaScript pour garantir une expérience de jeu fluide et équitable.",
     "skills": ["Javascript", "bootstrap"],
     "github": "https://github.com/PriscillaRenault/DiceGame",
     "website": "https://priscillarenault.github.io/DiceGame/"
