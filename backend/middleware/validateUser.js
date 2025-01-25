@@ -2,10 +2,7 @@ const { body, validationResult } = require('express-validator');
 
 const validateUser = [
   body('email').isEmail(),
-  body('password')
-    .isString()
-    .isLength({ min: 4, max: 30 })
-    .matches(/^[^\[\]{}$&."<>' ]*$/),
+  body('password').isString().isLength({ min: 4, max: 30 }),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
