@@ -1,10 +1,13 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+import useProjectSubmit from '../../utils/hooks/useProjectSubmit';
 import Button from '../Button';
+import './style.scss';
 
-const ProjectForm = ({ onSubmit }) => {
+const ProjectForm = () => {
   const { register, handleSubmit, reset } = useForm();
+  const { handleProjectSubmit, isLoading, error } = useProjectSubmit();
+
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState('');
 
@@ -20,59 +23,93 @@ const ProjectForm = ({ onSubmit }) => {
   };
 
   const onFormSubmit = (data) => {
-    const projectData = { ...data, skills };
-    onSubmit(projectData);
+    const formData = { ...data, skills };
+    handleProjectSubmit(formData);
     reset();
     setSkills([]);
   };
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
-      <input
-        {...register('userId', { required: true })}
-        placeholder='User ID'
-      />
-      <input {...register('title', { required: true })} placeholder='Title' />
-      <input
-        {...register('image', { required: true })}
-        placeholder='Image URL'
-      />
-      <textarea
-        {...register('description', { required: true })}
-        placeholder='Description'
-      />
-      <input
-        {...register('github', { required: true })}
-        placeholder='GitHub URL'
-      />
-
-      <div>
+    <form className='project-form' onSubmit={handleSubmit(onFormSubmit)}>
+      <div className='project-form__group'>
+        <label htmlFor='title'>Titre du projet</label>
         <input
-          value={skillInput}
-          onChange={(e) => setSkillInput(e.target.value)}
-          placeholder='Add a skill'
+          id='title'
+          {...register('title', { required: true })}
+          placeholder='Ex: Mon projet génial'
+          className='project-form__input'
         />
-        <button type='button' onClick={handleAddSkill}>
-          Add
-        </button>
       </div>
 
-      <ul>
+      <div className='project-form__group'>
+        <label htmlFor='image'>URL image</label>
+        <input
+          id='image'
+          type='file'
+          accept='image/*'
+          {...register('image', { required: true })}
+          className='project-form__input'
+        />
+      </div>
+
+      <div className='project-form__group'>
+        <label htmlFor='description'>Description</label>
+        <textarea
+          id='description'
+          {...register('description', { required: true })}
+          placeholder='Décrivez votre projet ici...'
+          className='project-form__textarea'
+        />
+      </div>
+
+      <div className='project-form__group'>
+        <label htmlFor='github'>Lien Github</label>
+        <input
+          id='github'
+          {...register('github', { required: true })}
+          placeholder='lien github'
+        />
+      </div>
+
+      <div className='project-form__group'>
+        <label htmlFor='skills'>Ajoutez des compétences</label>
+        <div className='project-form__skills'>
+          <input
+            id='skills'
+            value={skillInput}
+            onChange={(e) => setSkillInput(e.target.value)}
+            placeholder='Ajoutez une compétence'
+            className='project-form__input'
+          />
+          <button
+            type='button'
+            onClick={handleAddSkill}
+            className='project-form__add-button'
+          >
+            Ajouter
+          </button>
+        </div>
+      </div>
+
+      <ul className='project-form__skills-list'>
         {skills.map((skill, index) => (
-          <li key={index}>
+          <li key={index} className='project-form__skill-item'>
             {skill}
-            <Button onClick={() => handleRemoveSkill(index)}>Remove</Button>
+            <Button Text='Suppr' onClick={() => handleRemoveSkill(index)} />
           </li>
         ))}
       </ul>
 
-      <Button type='submit'>Submit</Button>
+      <Button
+        Text={isLoading ? 'Envoi en cours...' : 'Envoyer'}
+        type='submit'
+        className='project-form__submit-button'
+        disabled={isLoading}
+      />
+
+      {error && <p className='project-form__error'>{error}</p>}
     </form>
   );
-};
-
-ProjectForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ProjectForm;

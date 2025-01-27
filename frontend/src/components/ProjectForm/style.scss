@@ -1,0 +1,108 @@
+@use '../../scss/utils/main.scss' as utils;
+
+.project-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &__group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: utils.$primary;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: utils.$primary;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  &__skills {
+    display: flex;
+    gap: 10px;
+
+    input {
+      flex: 1;
+    }
+
+    .project-form__add-button {
+      padding: 10px 20px;
+      background: utils.$primary;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: darken(utils.$primary, 10%);
+      }
+    }
+  }
+
+  &__skills-list {
+    list-style: none;
+    padding: 0;
+
+    .project-form__skill-item {
+      background: #e0e0e0;
+      color: #000;
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        background: utils.$secondary;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background: darken(utils.$secondary, 10%);
+        }
+      }
+    }
+  }
+
+  &__submit-button {
+    width: 100%;
+    padding: 15px;
+    background: utils.$primary;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: darken(utils.$primary, 10%);
+    }
+  }
+}

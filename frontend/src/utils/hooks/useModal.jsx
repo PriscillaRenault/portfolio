@@ -1,32 +1,38 @@
 import { useState } from 'react';
-import projectsData from '../../data/projects.json';
 
 export const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const openModal = (id) => {
-    console.log('Ouverture de la modale pour le projet ID:', id); // Debugging
-    const project = projectsData.find((proj) => proj.id === id);
-    if (project) {
-      setSelectedProjectId(project);
-      setIsOpen(true); // Modifie l'état pour ouvrir la modale
-    } else {
-      console.warn('Aucun projet trouvé pour cet ID:', id);
+  // Fonction pour ouvrir la modale et récupérer les données de l'API
+  const openModal = async (id) => {
+    console.log('Ouverture de la modale pour le projet ID:', id);
+    setLoading(true);
+
+    try {
+      const response = await fetch(`http://localhost:4000/api/projects/${id}`);
+      if (!response.ok) {
+        throw new Error(`Erreur lors de la récupération: ${response.status}`);
+      }
+      const data = await response.json();
+      setSelectedProject(data);
+      setIsOpen(true);
+    } catch (err) {
+      console.error('Erreur lors de la récupération des données:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
+  // Fonction pour fermer la modale
   const closeModal = () => {
-    setSelectedProjectId(null);
+    setSelectedProject(null);
+    setError(null);
     setIsOpen(false);
   };
 
-  // Trouver l'objet projet correspondant à l'id sélectionné
-  const selectedProject = selectedProjectId
-    ? projectsData.find((project) => project.id === selectedProjectId)
-    : null;
-
-  console.log(selectedProject);
-
-  return { isOpen, selectedProject, openModal, closeModal };
+  return { isOpen, selectedProject, loading, error, openModal, closeModal };
 };

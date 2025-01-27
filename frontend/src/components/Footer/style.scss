@@ -1,0 +1,53 @@
+@use '../../scss/utils/main.scss' as utils;
+.footer {
+  padding: 40px 20px;
+  @include utils.flexbox(column, center, center);
+  max-width: 100%;
+
+  &__contact {
+    @media (max-width: 768px) {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+
+    a {
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: utils.$secondary; // Assombrissement au survol
+      }
+    }
+  }
+
+  &__legals {
+    flex: 1; // Occupe l'autre moitié de l'espace
+    max-width: 100%;
+    font-size: 1rem;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+// Media query pour une mise en colonne sur petits écrans
+@media (min-width: 768px) {
+  .footer {
+    width: 100%;
+    @include utils.flexbox(row, space-between, end);
+  }
+}

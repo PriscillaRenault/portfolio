@@ -20,7 +20,7 @@
     "id": "3fespxfjtdak",
     "title": "Mon vieux grimoire",
     "image": "https://fastly.picsum.photos/id/997/200/200.jpg?hmac=J9wMccIJgdwcAV_BlxcoN1N_oKWGt4Wb8EqkKqp-4gE",
-    "description": "Développer le backend d'un site de Notation de livres",
+    "description": "J'ai développé le backend d'un site de notation de livres en utilisant Node.js, Express.js et MongoDB. J'ai mis en œuvre un système complet d'API RESTful pour gérer les opérations CRUD sur les livres et les notes, tout en assurant la scalabilité et la sécurité de l'application.",
     "skills": ["Node.js", "Express", "MongoDB"],
     "github": "https://github.com/PriscillaRenault/OC_Project6_MonVieuxGrimoire"
   }
