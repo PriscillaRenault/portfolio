@@ -1,0 +1,14 @@
+@use '../../scss/utils/main.scss' as utils;
+
+.admin {
+  height: 80vh;
+  &__title {
+    margin: 3rem auto;
+    @include utils.font('xl', utils.$neutral-0, 'bold');
+  }
+  &__text {
+    margin: 1rem auto;
+    @include utils.font('l', utils.$neutral-0);
+    text-align: center;
+  }
+}

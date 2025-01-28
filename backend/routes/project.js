@@ -20,12 +20,6 @@ router.post(
   projectCtrl.createProject,
 );
 
-router.put(
-  '/:id',
-
-  projectCtrl.updateProject,
-);
-
 router.delete('/:id', auth, projectCtrl.deleteProject);
 
 module.exports = router;

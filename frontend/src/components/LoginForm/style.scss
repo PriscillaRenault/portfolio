@@ -11,7 +11,7 @@
 
   &__title {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 40px auto;
     color: #333;
   }
 
@@ -60,20 +60,4 @@
   }
 
   // Style du bouton retour
-  .back-home {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px;
-    background-color: #6c757d;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-
-    &:hover {
-      background-color: #5a6268;
-    }
-  }
 }

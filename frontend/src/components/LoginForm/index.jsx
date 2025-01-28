@@ -46,7 +46,7 @@ const LoginForm = () => {
   return (
     <div className='login'>
       <Button
-        Text='Accueil'
+        Text="Retour à l'accueil"
         onClick={() => navigate('/')}
         className='login__back-home'
       />

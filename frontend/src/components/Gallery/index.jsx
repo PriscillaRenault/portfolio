@@ -62,15 +62,18 @@ const Gallery = () => {
       {/* Affiche l'erreur s'il y en a */}
       <ul className='projects__container'>
         {projects.length > 0 ? (
-          projects.map(({ _id, image, title }) => (
-            <GalleryItem
-              key={_id}
-              id={_id}
-              image={image}
-              title={title}
-              onClick={() => openModal(_id)}
-            />
-          ))
+          projects
+            .slice()
+            .reverse()
+            .map(({ _id, image, title }) => (
+              <GalleryItem
+                key={_id}
+                id={_id}
+                image={image}
+                title={title}
+                onClick={() => openModal(_id)}
+              />
+            ))
         ) : (
           <p>Aucun projet trouvé.</p>
         )}

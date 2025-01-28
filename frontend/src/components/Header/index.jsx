@@ -26,7 +26,7 @@ const Header = () => {
                 icon={faLocationDot}
                 className='header__icon--Location'
               />
-              <span className='header__details--text'>France, Le Mans</span>
+              <span className='header__details--text'>Le Mans France</span>
             </span>
             <p className='header__details--text'>
               A la recherche de nouvelles collaborations

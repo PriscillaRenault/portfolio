@@ -5,10 +5,7 @@
   max-width: 100%;
 
   &__contact {
-    @media (max-width: 768px) {
-      max-width: 100%;
-      margin-bottom: 20px;
-    }
+    @include utils.flexbox(column, center, center);
   }
 
   &__title {
@@ -36,18 +33,18 @@
     max-width: 100%;
     font-size: 1rem;
     text-align: right;
-
-    @media (max-width: 768px) {
-      max-width: 100%;
-      text-align: center;
-    }
   }
 }
-
-// Media query pour une mise en colonne sur petits écrans
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .footer {
     width: 100%;
+    max-width: 100%;
     @include utils.flexbox(row, space-between, end);
+    &__contact {
+      @include utils.flexbox(column, center, start);
+    }
+    &__legals {
+      @include utils.flexbox(column, center, end);
+    }
   }
 }

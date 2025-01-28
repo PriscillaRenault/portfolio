@@ -1,0 +1,9 @@
+@use '../../scss/utils/main.scss' as utils;
+
+.dashboard {
+  @include utils.flexbox(column, center, center);
+  &__title {
+    @include utils.font('xl', utils.$neutral-0, bold);
+    margin: 2rem;
+  }
+}
