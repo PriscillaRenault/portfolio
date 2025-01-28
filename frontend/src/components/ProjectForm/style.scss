@@ -7,6 +7,11 @@
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &__title {
+    @include utils.font('l', utils.$neutral-100, 'bold');
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
   &__group {
     margin-bottom: 20px;
@@ -16,7 +21,7 @@
     label {
       font-weight: bold;
       margin-bottom: 5px;
-      color: utils.$primary;
+      color: utils.$neutral-100;
     }
 
     input,

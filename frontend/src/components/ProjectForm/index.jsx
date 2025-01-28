@@ -31,12 +31,13 @@ const ProjectForm = () => {
 
   return (
     <form className='project-form' onSubmit={handleSubmit(onFormSubmit)}>
+      <h2 className='project-form__title'>Nouveau projet</h2>
       <div className='project-form__group'>
         <label htmlFor='title'>Titre du projet</label>
         <input
           id='title'
           {...register('title', { required: true })}
-          placeholder='Ex: Mon projet génial'
+          placeholder='Ex: Mon nouveau projet'
           className='project-form__input'
         />
       </div>

@@ -1,0 +1,68 @@
+@use '../../scss/utils/main.scss' as utils;
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  border: 2px solid #fff;
+
+  &__header {
+    background-color: utils.$background; // Couleur primaire
+    color: #fff;
+    border: 1px solid #fff;
+
+    &-cell {
+      padding: 10px 15px;
+      text-align: left;
+      font-weight: bold;
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  &__body {
+    &-row {
+      &:nth-child(even) {
+        background-color: utils.$background; // Alternance de couleur pour les lignes
+      }
+
+      &:nth-child(odd) {
+        background-color: utils.$secondary-background;
+      }
+
+      &-cell {
+        padding: 10px 15px;
+
+        &--image {
+          img {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        &--actions {
+          display: flex;
+          gap: 5px;
+
+          .project-table__button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+
+            &--delete {
+              background-color: #ff6b6b; // Rouge pour la suppression
+              color: #fff;
+
+              &:hover {
+                opacity: 0.9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
