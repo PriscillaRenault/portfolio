@@ -12,7 +12,9 @@ export const useModal = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:4000/api/projects/${id}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/projects/${id}`,
+      );
       if (!response.ok) {
         throw new Error(`Erreur lors de la récupération: ${response.status}`);
       }

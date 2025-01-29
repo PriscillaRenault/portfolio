@@ -32,7 +32,9 @@ const Gallery = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:4000/api/projects/${_id}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/projects/${_id}`,
+      );
       if (!response.ok) {
         throw new Error('Aucun projet trouvé avec cet ID');
       }

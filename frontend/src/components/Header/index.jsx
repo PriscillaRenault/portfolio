@@ -36,6 +36,7 @@ const Header = () => {
             <a
               href='https://www.linkedin.com/in/priscillarenault/'
               target='_blank'
+              aria-label='Voir mon profil Linkedin'
             >
               <FontAwesomeIcon
                 icon={faLinkedinIn}
@@ -43,7 +44,11 @@ const Header = () => {
               />
             </a>
 
-            <a href='https://github.com/PriscillaRenault' target='_blank'>
+            <a
+              href='https://github.com/PriscillaRenault'
+              target='_blank'
+              aria-label='Voir mon profil Github'
+            >
               <FontAwesomeIcon
                 icon={faGithub}
                 className='header__socials--icons'

@@ -9,7 +9,7 @@ const useDeleteProject = () => {
     setError(null);
     try {
       const response = await fetch(
-        `http://localhost:4000/api/projects/${projectId}`,
+        `${import.meta.env.VITE_API_URL}/api/projects/${projectId}`,
         {
           method: 'DELETE',
           headers: {

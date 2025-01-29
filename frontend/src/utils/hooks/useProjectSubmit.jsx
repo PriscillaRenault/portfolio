@@ -21,13 +21,16 @@ const useProjectSubmit = () => {
     formData.append('image', data.image[0]);
 
     try {
-      const response = await fetch('http://localhost:4000/api/projects', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/projects`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+          },
+          body: formData,
         },
-        body: formData,
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Erreur lors de l'envoi du projet");
