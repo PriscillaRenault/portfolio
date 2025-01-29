@@ -8,4 +8,7 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
   },
+  server: {
+    historyApiFallback: true,
+  },
 });

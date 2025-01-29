@@ -1,7 +1,7 @@
 import './style.scss';
 function Footer() {
   return (
-    <footer className='footer'>
+    <footer className='footer' id='contact'>
       <div className='footer__contact'>
         <h2 className='footer__title'>Me contacter</h2>
         <p className='footer__text'>Priscilla RENAULT</p>
