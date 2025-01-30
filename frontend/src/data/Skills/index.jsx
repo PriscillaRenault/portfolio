@@ -14,12 +14,11 @@ const skillsValue = [
   {
     title: 'Back-end',
     skills: {
-      'Node.js': 80,
+      'Node.js': 70,
       Express: 80,
       MongoDB: 80,
       'RESTful API': 50,
-      MySQL: 20,
-      PHP: 20,
+      PHP: 10,
     },
   },
 

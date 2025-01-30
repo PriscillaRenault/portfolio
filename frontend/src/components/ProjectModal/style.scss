@@ -1,36 +1,97 @@
 @use '../../scss/utils/main.scss' as utils;
+
 .modal {
-  position: fixed; // La position fixe permet de garder la modale visible même en scrollant
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  @include utils.flexbox(column, center, center, 2rem);
+  background-color: rgba(0, 0, 0, 0.5); // Fond semi-transparent
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
+
   &__content {
-    padding: 20px;
-    border-radius: 10px;
     background-color: utils.$secondary-background;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 100%;
-    @include utils.flexbox(column, center, center, 1rem);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 600px; // Taille max sur mobile
+    max-height: 80vh;
+    overflow-y: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    // Scroll customisé
+    scrollbar-width: thin;
+    scrollbar-color: utils.$primary utils.$background;
+
     &--close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: utils.$background;
+      border: none;
+      padding: 8px 12px;
       cursor: pointer;
-      @include utils.font('m', utils.$neutral-0);
-      background-color: utils.$background;
-      align-self: flex-end;
       border-radius: 5px;
-      padding: 0.5rem 1rem;
+      font-size: 14px;
+      font-weight: bold;
+      color: utils.$neutral-0;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: utils.$primary;
+      }
+    }
+    .info {
+      &__title {
+        padding: 30px;
+        @include utils.font('m', utils.$secondary, bold);
+        text-transform: uppercase;
+        text-align: center;
+      }
+      &__image {
+        display: block;
+        height: 10rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+      }
+    }
+    .details {
+      @include utils.flexbox(column, center, center, 2rem);
+      &__title {
+        @include utils.font('s', utils.$neutral-0, bold);
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1rem;
+      }
+    }
+    .modal-footer {
+      @include utils.font('s', utils.$neutral-0, bold);
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      :hover {
+        color: utils.$secondary;
+      }
     }
   }
 }
+
+// ✅ Responsive (écran > 768px)
 @media screen and (min-width: 768px) {
-  .modal {
-    &__content {
-      max-width: 50rem;
+  .modal__content {
+    max-width: 50rem;
+    max-height: 85vh;
+    padding: 2rem;
+    .details {
+      @include utils.flexbox(row, space-between, start, 2rem);
     }
   }
 }

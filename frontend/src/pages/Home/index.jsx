@@ -3,10 +3,11 @@ import Header from '../../components/Header';
 import About from '../../components/About';
 import Skills from '../../components/Skills';
 import Gallery from '../../components/Gallery';
+import './style.scss';
 
 function Home() {
   return (
-    <div>
+    <div className='home'>
       <Navbar />
       <Header />
       <About />
