@@ -14,24 +14,22 @@ const skillsValue = [
   {
     title: 'Back-end',
     skills: {
-      'Node.js': 80,
-      Express: 80,
-      MongoDB: 80,
-      'RESTful API': 50,
-      MySQL: 20,
+      'Node.js': 70,
+      Express: 70,
+      MongoDB: 70,
+      'RESTful API': 70,
       PHP: 20,
     },
   },
 
   {
     title: 'Outils',
-    skills: { Git: 80, GitHub: 80, 'VS Code': 90, AI: 75 },
+    skills: { Git: 80, GitHub: 80, 'VS Code': 90, Jira: 80 },
   },
   {
     title: 'Soft Skills',
     skills: {
       'Gestion de projet': 70,
-      Jira: 80,
       Anglais: 70,
     },
   },
