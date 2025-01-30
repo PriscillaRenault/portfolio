@@ -31,10 +31,10 @@ const Gallery = () => {
     console.log('ID du projet:', _id); // Vérifie ici si l'ID est bien l'ObjectId
     setLoading(true);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects/${_id}`,
-      );
+      const response = await fetch(`${API_URL}/api/projects/${_id}`);
       if (!response.ok) {
         throw new Error('Aucun projet trouvé avec cet ID');
       }

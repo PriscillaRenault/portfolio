@@ -19,18 +19,15 @@ const useProjectSubmit = () => {
       }),
     );
     formData.append('image', data.image[0]);
-
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects`,
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-          },
-          body: formData,
+      const response = await fetch(`${API_URL}/api/projects`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
         },
-      );
+        body: formData,
+      });
 
       if (!response.ok) {
         throw new Error("Erreur lors de l'envoi du projet");

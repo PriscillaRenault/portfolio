@@ -7,17 +7,15 @@ const useDeleteProject = () => {
   const deleteProject = async (projectId) => {
     setIsLoading(true);
     setError(null);
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects/${projectId}`,
-        {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-          },
+      const response = await fetch(`${API_URL}/api/projects/${projectId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
         },
-      );
+      });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

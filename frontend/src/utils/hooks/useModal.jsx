@@ -10,11 +10,9 @@ export const useModal = () => {
   const openModal = async (id) => {
     console.log('Ouverture de la modale pour le projet ID:', id);
     setLoading(true);
-
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects/${id}`,
-      );
+      const response = await fetch(`${API_URL}/api/projects/${id}`);
       if (!response.ok) {
         throw new Error(`Erreur lors de la récupération: ${response.status}`);
       }
