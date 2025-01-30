@@ -1,9 +1,9 @@
 @use '../../scss/utils/main.scss' as utils;
 
 .admin {
-  height: 80vh;
   &__title {
     margin: 3rem auto;
+    text-align: center;
     @include utils.font('xl', utils.$neutral-0, 'bold');
   }
   &__text {
