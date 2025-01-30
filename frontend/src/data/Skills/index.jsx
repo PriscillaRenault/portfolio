@@ -1,14 +1,13 @@
+import { useState } from 'react';
 import './style.scss';
-const skillsValue = [
+
+const allSkills = [
   {
     title: 'Front-end',
     skills: {
       JavaScript: 80,
       React: 80,
       TypeScript: 60,
-      HTML5: 95,
-      'CSS3 / SCSS': 95,
-      Bootstrap: 80,
     },
   },
   {
@@ -21,7 +20,6 @@ const skillsValue = [
       PHP: 10,
     },
   },
-
   {
     title: 'Outils',
     skills: { Git: 80, GitHub: 80, 'VS Code': 90, AI: 75 },
@@ -37,6 +35,8 @@ const skillsValue = [
 ];
 
 const Skills = () => {
+  const [skillsValue] = useState(allSkills);
+
   return (
     <div id='skills'>
       <section className='skills'>
