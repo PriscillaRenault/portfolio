@@ -20,7 +20,6 @@ const Gallery = () => {
     const getProjects = async () => {
       setLoading(true);
       const data = await fetchProjects();
-      console.log('Données récupérées :', data); // Debugging
       setProjects(data);
       setLoading(false);
     };
@@ -28,7 +27,6 @@ const Gallery = () => {
   }, []);
 
   const openModal = async (_id) => {
-    console.log('ID du projet:', _id); // Vérifie ici si l'ID est bien l'ObjectId
     setLoading(true);
 
     const API_URL = import.meta.env.VITE_API_URL;

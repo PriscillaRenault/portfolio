@@ -20,7 +20,6 @@ const ProjectUpdate = () => {
       setLoading(true);
       try {
         const data = await fetchProjects();
-        console.log('Données récupérées :', data);
         setProjects(data);
       } catch (err) {
         console.error(

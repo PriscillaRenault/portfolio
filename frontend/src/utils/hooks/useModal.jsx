@@ -8,7 +8,6 @@ export const useModal = () => {
 
   // Fonction pour ouvrir la modale et récupérer les données de l'API
   const openModal = async (id) => {
-    console.log('Ouverture de la modale pour le projet ID:', id);
     setLoading(true);
     const API_URL = import.meta.env.VITE_API_URL;
     try {

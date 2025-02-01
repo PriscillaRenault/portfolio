@@ -7,8 +7,8 @@ import photoDeMoi from '../../assets/images/moi.jpg';
 
 const Header = () => {
   return (
-    <header className='header' id='about'>
-      <section className='header__content'>
+    <section className='header' id='about'>
+      <header className='header__content'>
         <div className='header__photo-container'>
           <img
             className='header__photo-container--photo'
@@ -56,8 +56,8 @@ const Header = () => {
             </a>
           </div>
         </div>
-      </section>
-    </header>
+      </header>
+    </section>
   );
 };
 

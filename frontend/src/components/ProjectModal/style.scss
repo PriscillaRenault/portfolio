@@ -51,13 +51,13 @@
     .info {
       &__title {
         padding: 30px;
-        @include utils.font('m', utils.$secondary, bold);
+        @include utils.font('l', utils.$secondary, bold);
         text-transform: uppercase;
         text-align: center;
       }
       &__image {
         display: block;
-        height: 10rem;
+        height: 15rem;
         border-radius: 1rem;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         margin: 0 auto;
@@ -66,14 +66,20 @@
     .details {
       @include utils.flexbox(column, center, center, 2rem);
       &__title {
-        @include utils.font('s', utils.$neutral-0, bold);
+        @include utils.font('m', utils.$neutral-0, bold);
         text-transform: uppercase;
         text-align: center;
         padding: 1rem;
       }
+      &__content {
+        @include utils.font('m', utils.$neutral-0);
+        text-align: center;
+        padding: 1rem;
+        line-height: 1.2;
+      }
     }
     .modal-footer {
-      @include utils.font('s', utils.$neutral-0, bold);
+      @include utils.font('m', utils.$neutral-0, bold);
       text-align: center;
       padding: 1rem;
       margin-bottom: 1rem;

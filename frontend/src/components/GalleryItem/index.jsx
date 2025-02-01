@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const GalleryItem = ({ id, image, title, onClick }) => {
-  console.log(`GalleryItem rendu avec ID: ${id}`);
-
+const GalleryItem = ({ image, title, onClick }) => {
   return (
     <li onClick={onClick} className='project__item' data-cover={image}>
       <div
