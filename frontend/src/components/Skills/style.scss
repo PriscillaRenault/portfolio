@@ -5,6 +5,7 @@
   height: 100%;
   padding: 2rem;
   margin-top: 3rem;
+  padding-top: 80px;
 
   &__container {
     @include utils.flexbox(column, center, center, 2rem, wrap);
