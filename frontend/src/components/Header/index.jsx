@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import photoDeMoi from '../../assets/images/moi.jpg';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation();
   return (
     <section className='header' id='about'>
       <header className='header__content'>
@@ -17,8 +19,8 @@ const Header = () => {
           />
         </div>
         <div>
-          <h1 className='header__title'>Priscilla RENAULT</h1>
-          <p className='header__job'>Développeuse Web</p>
+          <h1 className='header__title'>{t('header.title')} </h1>
+          <p className='header__job'>{t('header.job')} </p>
 
           <div className='header__details'>
             <span>
@@ -26,17 +28,17 @@ const Header = () => {
                 icon={faLocationDot}
                 className='header__icon--Location'
               />
-              <span className='header__details--text'>Le Mans France</span>
+              <span className='header__details--text'>
+                {t('header.location')}
+              </span>
             </span>
-            <p className='header__details--text'>
-              A la recherche de nouvelles collaborations
-            </p>
+            <p className='header__details--text'>{t('header.collaboration')}</p>
           </div>
           <div className='header__socials'>
             <a
               href='https://www.linkedin.com/in/priscillarenault/'
               target='_blank'
-              aria-label='Voir mon profil Linkedin'
+              aria-label={t('header.socials.linkedin')}
             >
               <FontAwesomeIcon
                 icon={faLinkedinIn}
@@ -47,7 +49,7 @@ const Header = () => {
             <a
               href='https://github.com/PriscillaRenault'
               target='_blank'
-              aria-label='Voir mon profil Github'
+              aria-label={t('header.socials.github')}
             >
               <FontAwesomeIcon
                 icon={faGithub}

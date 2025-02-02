@@ -1,0 +1,28 @@
+{
+  "header": {
+    "title": "Priscilla RENAULT",
+    "job": "Web Developer",
+    "location": "Le Mans, France",
+    "collaboration": "Looking for new collaborations"
+  },
+  "aboutme": {
+    "title": "About Me",
+    "intro": "Hi, I'm <span class='highlight'>Priscilla</span> ! Passionate about software development, I started self-learning a few years ago by creating my first projects. This allowed me to acquire skills in <span class='highlight'>front-end, back-end, databases, and project management.</span> Curious, I&apos;m also interested in <span class='highlight'>data and management information systems.</span>",
+    "career": "In 2024, I decided to strengthen my learning by joining a web developer training course at OpenClassrooms to structure and deepen my knowledge. This <span class='highlight'>career change</span> is the culmination of a passion I&apos;ve decided to turn into a profession.",
+    "experience": "Before that, I spent 15 years in sales, including <span class='highlight'>8 years as a technical sales manager</span>, where I developed skills in communication, organization, and project management.",
+    "what_i_like": "What I enjoy? <span class='highlight'>Learning, tackling technical challenges, and evolving in a constantly changing field.</span>"
+  },
+  "myskills": {
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "tools": "Tools",
+    "softSkills": "Soft Skills",
+    "skillsLabel": "My Skills"
+  },
+  "welcome": "Welcome to my portfolio",
+  "about": "About Me",
+  "skills": "Skills",
+  "projects": "Projects",
+  "contact": "Contact",
+  "cv": "CV"
+}

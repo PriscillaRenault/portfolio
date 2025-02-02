@@ -9,16 +9,26 @@ const useProjectSubmit = () => {
     setError(null);
 
     const formData = new FormData();
+
+    // Ajouter les titres et descriptions en français et en anglais
     formData.append(
       'project',
       JSON.stringify({
-        title: data.title,
-        description: data.description,
+        title: {
+          fr: data.titleFr, // Assurez-vous que votre formulaire a les champs titleFr et titleEn
+          en: data.titleEn,
+        },
+        description: {
+          fr: data.descriptionFr, // Assurez-vous que votre formulaire a les champs descriptionFr et descriptionEn
+          en: data.descriptionEn,
+        },
         github: data.github,
         skills: data.skills,
       }),
     );
+
     formData.append('image', data.image[0]);
+
     const API_URL = import.meta.env.VITE_API_URL;
     try {
       const response = await fetch(`${API_URL}/api/projects`, {

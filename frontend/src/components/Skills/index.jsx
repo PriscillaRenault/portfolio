@@ -1,7 +1,9 @@
 import './style.scss';
+import { useTranslation } from 'react-i18next';
+
 const skillsValue = [
   {
-    title: 'Front-end',
+    title: 'frontend', // Utilise la clé pour la traduction
     skills: {
       JavaScript: 80,
       React: 80,
@@ -12,7 +14,7 @@ const skillsValue = [
     },
   },
   {
-    title: 'Back-end',
+    title: 'backend', // Utilise la clé pour la traduction
     skills: {
       'Node.js': 70,
       Express: 70,
@@ -20,13 +22,12 @@ const skillsValue = [
       'RESTful API': 70,
     },
   },
-
   {
-    title: 'Outils',
+    title: 'tools', // Utilise la clé pour la traduction
     skills: { Git: 80, GitHub: 80, 'VS Code': 90, Jira: 80 },
   },
   {
-    title: 'Soft Skills',
+    title: 'softSkills', // Utilise la clé pour la traduction
     skills: {
       'Gestion de projet': 70,
       Anglais: 70,
@@ -35,14 +36,19 @@ const skillsValue = [
 ];
 
 const Skills = () => {
+  const { t } = useTranslation(); // Récupère la fonction de traduction
+
   return (
     <section id='skills' className='skills'>
-      <h2>Mes compétences</h2>
+      <h2>{t('myskills.skillsLabel')}</h2> {/* Traduction du titre */}
       <div className='border-h2'></div>
       <div className='skills__container'>
         {skillsValue.map((category, index) => (
           <div key={index} className='skills__list'>
-            <h3 className='skills__list--title'>{category.title}</h3>
+            <h3 className='skills__list--title'>
+              {t(`myskills.${category.title}`)}
+            </h3>{' '}
+            {/* Traduction du titre de catégorie */}
             <ul>
               {Object.entries(category.skills).map(([skill, value], idx) => (
                 <li key={idx} className='skills__item'>

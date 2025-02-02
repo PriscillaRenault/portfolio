@@ -2,9 +2,11 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import useProjectSubmit from '../../utils/hooks/useProjectSubmit';
 import Button from '../Button';
+import { useTranslation } from 'react-i18next';
 import './style.scss';
 
 const ProjectForm = () => {
+  const { t } = useTranslation(); // Importation de la fonction de traduction
   const { register, handleSubmit, reset } = useForm();
   const { handleProjectSubmit, isLoading, error } = useProjectSubmit();
 
@@ -23,8 +25,42 @@ const ProjectForm = () => {
   };
 
   const onFormSubmit = (data) => {
-    const formData = { ...data, skills };
+    // Vérifier si une image a été sélectionnée
+    if (!data.image || data.image.length === 0) {
+      console.error('Erreur : Aucune image sélectionnée.');
+      return; // Si aucune image n'est sélectionnée, on arrête
+    }
+
+    // Créer un objet FormData pour envoyer les données
+    const formData = new FormData();
+
+    // Ajouter les autres informations dans FormData
+    formData.append(
+      'project',
+      JSON.stringify({
+        title: {
+          fr: data.titleFr,
+          en: data.titleEn,
+        },
+        description: {
+          fr: data.descriptionFr,
+          en: data.descriptionEn,
+        },
+        github: data.github,
+        skills: skills, // Compétences sous forme de tableau
+      }),
+    );
+
+    // Ajouter l'image à FormData (data.image[0] est le fichier)
+    formData.append('image', data.image[0]);
+
+    // Debugging - Voir les données envoyées
+    console.log('Données envoyées au backend :', formData);
+
+    // Appeler la fonction pour envoyer les données
     handleProjectSubmit(formData);
+
+    // Réinitialiser le formulaire et les compétences
     reset();
     setSkills([]);
   };
@@ -32,20 +68,34 @@ const ProjectForm = () => {
   return (
     <form className='project-form' onSubmit={handleSubmit(onFormSubmit)}>
       <h2 className='project-form__title'>Nouveau projet</h2>
+
       <div className='project-form__group'>
-        <label htmlFor='title'>Titre du projet</label>
+        <label htmlFor='title.fr'>Titre</label>
         <input
-          id='title'
-          {...register('title', { required: true })}
-          placeholder='Ex: Mon nouveau projet'
+          id='title.fr'
+          name='title.fr'
+          {...register('title.fr', { required: true })}
+          placeholder='Titre du projet'
           className='project-form__input'
         />
       </div>
 
       <div className='project-form__group'>
-        <label htmlFor='image'>URL image</label>
+        <label htmlFor='title.en'>Titre en Anglais</label>
+        <input
+          id='title.en'
+          name='title.en'
+          {...register('title.en', { required: true })}
+          placeholder='title of the project'
+          className='project-form__input'
+        />
+      </div>
+
+      <div className='project-form__group'>
+        <label htmlFor='image'>Image</label>
         <input
           id='image'
+          name='image'
           type='file'
           accept='image/*'
           {...register('image', { required: true })}
@@ -54,32 +104,46 @@ const ProjectForm = () => {
       </div>
 
       <div className='project-form__group'>
-        <label htmlFor='description'>Description</label>
+        <label htmlFor='description.fr'>Description en français</label>
         <textarea
-          id='description'
-          {...register('description', { required: true })}
-          placeholder='Décrivez votre projet ici...'
+          id='description.fr'
+          name='description.fr'
+          {...register('description.fr', { required: true })}
+          placeholder='description en français'
           className='project-form__textarea'
         />
       </div>
 
       <div className='project-form__group'>
-        <label htmlFor='github'>Lien Github</label>
-        <input
-          id='github'
-          {...register('github', { required: true })}
-          placeholder='lien github'
+        <label htmlFor='description.en'>Description en anglais</label>
+        <textarea
+          id='description.en'
+          name='description.en'
+          {...register('description.en', { required: true })}
+          placeholder='description in english'
+          className='project-form__textarea'
         />
       </div>
 
       <div className='project-form__group'>
-        <label htmlFor='skills'>Ajoutez des compétences</label>
+        <label htmlFor='github'>{t('githubLink')}</label>
+        <input
+          id='github'
+          name='github'
+          {...register('github', { required: true })}
+          placeholder='lien vers github'
+        />
+      </div>
+
+      <div className='project-form__group'>
+        <label htmlFor='skills'>{t('addSkills')}</label>
         <div className='project-form__skills'>
           <input
             id='skills'
+            name='skills'
             value={skillInput}
             onChange={(e) => setSkillInput(e.target.value)}
-            placeholder='Ajoutez une compétence'
+            placeholder='Entrez une compétence'
             className='project-form__input'
           />
           <button
@@ -87,7 +151,7 @@ const ProjectForm = () => {
             onClick={handleAddSkill}
             className='project-form__add-button'
           >
-            Ajouter
+            ajouter
           </button>
         </div>
       </div>
@@ -96,13 +160,13 @@ const ProjectForm = () => {
         {skills.map((skill, index) => (
           <li key={index} className='project-form__skill-item'>
             {skill}
-            <Button Text='Suppr' onClick={() => handleRemoveSkill(index)} />
+            <Button Text='supprimer' onClick={() => handleRemoveSkill(index)} />
           </li>
         ))}
       </ul>
 
       <Button
-        Text={isLoading ? 'Envoi en cours...' : 'Envoyer'}
+        Text={isLoading ? t('sending') : t('submit')}
         type='submit'
         className='project-form__submit-button'
         disabled={isLoading}

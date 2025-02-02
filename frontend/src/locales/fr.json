@@ -1,0 +1,28 @@
+{
+  "header": {
+    "title": "Priscilla RENAULT",
+    "job": "Développeuse Web",
+    "location": "Le Mans, France",
+    "collaboration": "À la recherche de nouvelles collaborations"
+  },
+  "aboutme": {
+    "title": "À propos de moi",
+    "intro": "Salut, moi c&apos;est <span class='highlight'>Priscilla</span> ! Passionnée par le développement informatique, j&apos;ai commencé en autodidacte il y a quelques années en réalisant mes premiers projets. Cela m&apos;a permis d&apos;acquérir des compétences en <span class='highlight'>front, back, bases de données, et gestion de projet.</span> Curieuse, je m&apos;intéresse aussi à <span class='highlight'>la data et à l&apos;informatique de gestion.</span>",
+    "career": "En 2024, j&apos;ai choisi de renforcer mon apprentissage en intégrant une formation de développeur web chez OpenClassrooms pour structurer et approfondir mes connaissances. Cette <span class='highlight'>reconversion</span> est l&apos;aboutissement d&apos;une passion que j&apos;ai décidé de transformer en carrière.",
+    "experience": "Avant cela, j&apos;ai passé 15 ans dans le commerce, dont <span class='highlight'>8 comme responsable technico-commerciale</span>, où j&apos;ai développé des compétences en communication, organisation et gestion de projet.",
+    "what_i_like": "Ce que j&apos;aime ? <span class='highlight'>Apprendre, relever des défis techniques et évoluer dans un domaine en constante mutation.</span>"
+  },
+  "myskills": {
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "tools": "Outils",
+    "softSkills": "Soft Skills",
+    "skillsLabel": "Mes compétences"
+  },
+
+  "about": "À propos de moi",
+  "skills": "Compétences",
+  "projects": "Projets",
+  "contact": "Contact",
+  "cv": "CV"
+}

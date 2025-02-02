@@ -1,50 +1,33 @@
 import './style.scss';
+import { useTranslation } from 'react-i18next';
 
-const about = () => {
+const About = () => {
+  const { t } = useTranslation();
+
   return (
-    <section id='about' className='about'>
-      <h2>À propos de moi</h2>
+    <section id='aboutme' className='about'>
+      <h2>{t('aboutme.title')}</h2>
       <div className='border-h2'></div>
       <div className='about__content'>
-        <p className='about__content--text'>
-          Salut, moi c&apos;est <span className='highlight'>Priscilla</span> !
-          Passionnée par le développement informatique, j&apos;ai commencé en
-          autodidacte il y a quelques années en réalisant mes premiers projets.
-          Cela m&apos;a permis d&apos;acquérir des compétences en{' '}
-          <span className='highlight'>
-            front, back, bases de données, et gestion de projet.
-          </span>{' '}
-          Curieuse, je m&apos;intéresse aussi à{' '}
-          <span className='highlight'>
-            la data et à l&apos;informatique de gestion{' '}
-          </span>
-          .{' '}
-        </p>
-        <p className='about__content--text'>
-          En 2024, j&apos;ai choisi de renforcer mon apprentissage en intégrant
-          une formation de développeur web chez OpenClassrooms pour structurer
-          et approfondir mes connaissances. Cette{' '}
-          <span className='highlight'>reconversion </span>est
-          l&apos;aboutissement d&apos;une passion que j&apos;ai décidé de
-          transformer en carrière.{' '}
-        </p>
-        <p className='about__content--text'>
-          Avant cela, j&apos;ai passé 15 ans dans le commerce, dont{' '}
-          <span className='highlight'>
-            8 comme responsable technico-commerciale{' '}
-          </span>
-          , où j&apos;ai développé des compétences en communication,
-          organisation et gestion de projet.{' '}
-        </p>
-        <p className='about__content--text'>
-          Ce que j&apos;aime ?{' '}
-          <span className='highlight'>
-            Apprendre, relever des défis techniques et évoluer dans un domaine
-            en constante mutation.
-          </span>
-        </p>
+        <p
+          className='about__content--text'
+          dangerouslySetInnerHTML={{ __html: t('aboutme.intro') }}
+        ></p>
+        <p
+          className='about__content--text'
+          dangerouslySetInnerHTML={{ __html: t('aboutme.career') }}
+        ></p>
+        <p
+          className='about__content--text'
+          dangerouslySetInnerHTML={{ __html: t('aboutme.experience') }}
+        ></p>
+        <p
+          className='about__content--text'
+          dangerouslySetInnerHTML={{ __html: t('aboutme.what_i_like') }}
+        ></p>
       </div>
     </section>
   );
 };
-export default about;
+
+export default About;
