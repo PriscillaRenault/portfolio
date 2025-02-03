@@ -8,21 +8,27 @@ exports.getAllProjects = (req, res, next) => {
 };
 
 exports.createProject = (req, res, next) => {
-  const projectObject = JSON.parse(req.body.project);
-  delete projectObject._id;
-  delete projectObject._userId;
+  try {
+    // Parser les données du projet
+    const projectObject = JSON.parse(req.body.project);
+    delete projectObject._id;
+    delete projectObject._userId;
 
-  const project = new Project({
-    ...projectObject,
-    userId: req.auth.userId,
-    image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-  });
-  project
-    .save()
-    .then(() => res.status(201).json({ message: 'Projet enregistré !' }))
-    .catch((error) => {
-      res.status(400).json({ error });
+    const project = new Project({
+      ...projectObject,
+      userId: req.auth.userId,
+      image: req.imageUrl,
     });
+
+    // Sauvegarde en base de données
+    project
+      .save()
+      .then(() => res.status(201).json({ message: 'Projet enregistré !' }))
+      .catch((error) => res.status(400).json({ error }));
+  } catch (error) {
+    console.error('Erreur lors de la création du projet :', error);
+    res.status(500).json({ error: 'Une erreur est survenue' });
+  }
 };
 
 exports.getOneProject = (req, res, next) => {

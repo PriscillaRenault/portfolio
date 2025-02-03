@@ -21,8 +21,14 @@ mongoose
 app.use(express.json());
 app.use(bodyParser.json());
 
-// CORS Cross Origin Resource Sharing
-app.use(cors());
+// Autoriser les requêtes venant de www.priscillarenault.fr
+const corsOptions = {
+  origin: 'https://www.priscillarenault.fr',
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization', // Ajoute les headers autorisés si besoin
+};
+
+app.use(cors(corsOptions));
 
 // **Forcer Express à reconnaître HTTPS (Heroku utilise un proxy)**
 app.set('trust proxy', 1);
