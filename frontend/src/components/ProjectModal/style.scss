@@ -78,6 +78,7 @@
         line-height: 1.2;
       }
     }
+
     .modal-footer {
       @include utils.font('m', utils.$neutral-0, bold);
       text-align: center;

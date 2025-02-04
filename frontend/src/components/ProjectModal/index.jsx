@@ -4,7 +4,7 @@ import './style.scss';
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
-  const { title, image, description, skills, github } = project;
+  const { title, image, description, skills, issues, github } = project;
 
   return (
     <dialog className='modal' open>
@@ -32,6 +32,14 @@ const ProjectModal = ({ project, onClose }) => {
             </ul>
           </div>
         </div>
+        <div>
+          <h4 className='details__title'>Problématiques</h4>
+          <ul className='details__content'>
+            {issues.map((issue, index) => (
+              <li key={index}>{issue}</li>
+            ))}
+          </ul>
+        </div>
 
         <footer className='modal-footer'>
           <a href={github} target='_blank' rel='noreferrer'>
@@ -50,6 +58,7 @@ ProjectModal.propTypes = {
     image: PropTypes.string.isRequired,
     description: PropTypes.string,
     skills: PropTypes.arrayOf(PropTypes.string),
+    issues: PropTypes.arrayOf(PropTypes.string),
     github: PropTypes.string,
   }),
   onClose: PropTypes.func.isRequired,

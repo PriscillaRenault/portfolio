@@ -10,7 +10,10 @@ const ProjectForm = () => {
 
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState('');
+  const [issues, setIssues] = useState([]); // État pour gérer les issues
+  const [issueInput, setIssueInput] = useState(''); // Champ d'entrée pour issue
 
+  // Ajout d'une compétence
   const handleAddSkill = () => {
     if (skillInput.trim() && !skills.includes(skillInput.trim())) {
       setSkills([...skills, skillInput.trim()]);
@@ -18,20 +21,38 @@ const ProjectForm = () => {
     }
   };
 
+  // Suppression d'une compétence
   const handleRemoveSkill = (index) => {
     setSkills(skills.filter((_, i) => i !== index));
   };
 
+  // Ajout d'un issue
+  const handleAddIssue = () => {
+    if (issueInput.trim() && !issues.includes(issueInput.trim())) {
+      setIssues([...issues, issueInput.trim()]);
+      setIssueInput('');
+    }
+  };
+
+  // Suppression d'un issue
+  const handleRemoveIssue = (index) => {
+    setIssues(issues.filter((_, i) => i !== index));
+  };
+
+  // Soumission du formulaire
   const onFormSubmit = (data) => {
-    const formData = { ...data, skills };
+    const formData = { ...data, skills, issue: issues }; // Inclure les issues dans les données envoyées
     handleProjectSubmit(formData);
     reset();
     setSkills([]);
+    setIssues([]);
   };
 
   return (
     <form className='project-form' onSubmit={handleSubmit(onFormSubmit)}>
       <h2 className='project-form__title'>Nouveau projet</h2>
+
+      {/* Champ Titre */}
       <div className='project-form__group'>
         <label htmlFor='title'>Titre du projet</label>
         <input
@@ -42,6 +63,7 @@ const ProjectForm = () => {
         />
       </div>
 
+      {/* Champ Image */}
       <div className='project-form__group'>
         <label htmlFor='image'>URL image</label>
         <input
@@ -53,6 +75,7 @@ const ProjectForm = () => {
         />
       </div>
 
+      {/* Champ Description */}
       <div className='project-form__group'>
         <label htmlFor='description'>Description</label>
         <textarea
@@ -63,6 +86,7 @@ const ProjectForm = () => {
         />
       </div>
 
+      {/* Champ Github */}
       <div className='project-form__group'>
         <label htmlFor='github'>Lien Github</label>
         <input
@@ -72,6 +96,7 @@ const ProjectForm = () => {
         />
       </div>
 
+      {/* Champ Skills */}
       <div className='project-form__group'>
         <label htmlFor='skills'>Ajoutez des compétences</label>
         <div className='project-form__skills'>
@@ -92,6 +117,7 @@ const ProjectForm = () => {
         </div>
       </div>
 
+      {/* Liste des compétences */}
       <ul className='project-form__skills-list'>
         {skills.map((skill, index) => (
           <li key={index} className='project-form__skill-item'>
@@ -101,6 +127,38 @@ const ProjectForm = () => {
         ))}
       </ul>
 
+      {/* Champ Issues */}
+      <div className='project-form__group'>
+        <label htmlFor='issues'>Problématiques</label>
+        <div className='project-form__skills'>
+          <textarea
+            id='issues'
+            value={issueInput}
+            onChange={(e) => setIssueInput(e.target.value)}
+            placeholder='Ajoutez une problématique'
+            className='project-form__input'
+          />
+          <button
+            type='button'
+            onClick={handleAddIssue}
+            className='project-form__add-button'
+          >
+            Ajouter
+          </button>
+        </div>
+      </div>
+
+      {/* Liste des issues */}
+      <ul className='project-form__skills-list'>
+        {issues.map((issue, index) => (
+          <li key={index} className='project-form__skill-item'>
+            {issue}
+            <Button Text='Suppr' onClick={() => handleRemoveIssue(index)} />
+          </li>
+        ))}
+      </ul>
+
+      {/* Bouton Submit */}
       <Button
         Text={isLoading ? 'Envoi en cours...' : 'Envoyer'}
         type='submit'
