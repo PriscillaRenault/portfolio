@@ -18,12 +18,13 @@ const skillsValue = [
       Express: 70,
       MongoDB: 70,
       'RESTful API': 70,
+      PHP: 20,
     },
   },
 
   {
     title: 'Outils',
-    skills: { Git: 80, GitHub: 80, 'VS Code': 90, Jira: 80 },
+    skills: { 'Git / GitHub': 80, 'VS Code': 90, Jira: 80 },
   },
   {
     title: 'Soft Skills',

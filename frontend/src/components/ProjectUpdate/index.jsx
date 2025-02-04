@@ -1,6 +1,6 @@
 import { fetchProjects } from '../../api';
 import { useState, useEffect } from 'react';
-import useDeleteProject from '../../utils/hooks/useDeleteProject'; // Import du hook
+import useDeleteProject from '../../utils/hooks/useDeleteProject';
 import './style.scss';
 
 const ProjectUpdate = () => {
@@ -8,7 +8,6 @@ const ProjectUpdate = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Appel du hook pour gérer la suppression
   const {
     deleteProject,
     isLoading: isDeleting,
@@ -35,10 +34,10 @@ const ProjectUpdate = () => {
   }, []);
 
   const handleDelete = async (projectId) => {
-    await deleteProject(projectId); // Supprime le projet
+    await deleteProject(projectId);
     setProjects((prevProjects) =>
       prevProjects.filter((project) => project._id !== projectId),
-    ); // Met à jour la liste des projets localement
+    );
   };
 
   return (

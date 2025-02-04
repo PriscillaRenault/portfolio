@@ -1,4 +1,3 @@
-// Import dotenv to hide
 require('dotenv').config();
 
 // Main dependencies
@@ -21,19 +20,30 @@ mongoose
 app.use(express.json());
 app.use(bodyParser.json());
 
-// Autoriser les requêtes venant de www.priscillarenault.fr
+// CORS
 const corsOptions = {
-  origin: 'https://www.priscillarenault.fr',
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://www.priscillarenault.fr',
+      'http://localhost:5173',
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization', // Ajoute les headers autorisés si besoin
+  allowedHeaders: 'Content-Type,Authorization',
 };
 
 app.use(cors(corsOptions));
 
-// **Forcer Express à reconnaître HTTPS (Heroku utilise un proxy)**
+// Force https
 app.set('trust proxy', 1);
 
-// **Rediriger toutes les requêtes HTTP vers HTTPS**
+// Redirect http to https
 app.use((req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect(`https://${req.get('host')}${req.url}`);

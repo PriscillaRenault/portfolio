@@ -54,7 +54,7 @@ const Navbar = () => {
           >
             {item.label}
           </a>
-        ) : item.id === 'cv' ? ( // Vérifie si l'élément est le bouton CV
+        ) : item.id === 'cv' ? ( // CV button with link to PDF
           <a href={CV} target='_blank' rel='noreferrer'>
             <Button Text={item.label} />
           </a>

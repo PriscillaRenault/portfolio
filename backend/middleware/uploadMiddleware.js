@@ -4,37 +4,35 @@ const path = require('path');
 const fs = require('fs-extra');
 const cloudinary = require('./cloudinaryConfig');
 
-// Configuration de Multer pour stocker temporairement les fichiers
+// Multer storage in memory
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Middleware de conversion WebP et envoi à Cloudinary
+// Convert image to WebP and upload to Cloudinary
 const processImage = async (req, res, next) => {
   if (!req.file) {
     return res.status(400).json({ error: 'Aucune image envoyée' });
   }
 
   try {
-    // Créer un chemin temporaire pour le fichier WebP
+    // Create a temporary file
     const tempPath = path.join(__dirname, 'temp', `${Date.now()}.webp`);
-    await fs.ensureDir(path.join(__dirname, 'temp')); // Assure que le dossier existe
+    await fs.ensureDir(path.join(__dirname, 'temp'));
 
-    // Convertir l'image en WebP avec Sharp
-    await sharp(req.file.buffer)
-      .webp({ quality: 80 }) // Ajuste la qualité selon tes besoins
-      .toFile(tempPath);
+    // Convert in webp with sharp
+    await sharp(req.file.buffer).webp({ quality: 80 }).toFile(tempPath);
 
-    // Upload sur Cloudinary
+    // Upload on Cloudinary
     const result = await cloudinary.uploader.upload(tempPath, {
-      folder: 'portfolio-images', // Dossier Cloudinary
+      folder: 'portfolio-images',
       use_filename: true,
       resource_type: 'image',
     });
 
-    // Supprimer le fichier temporaire
+    // Remove temporary file
     await fs.remove(tempPath);
 
-    // Ajouter l'URL Cloudinary dans la requête
+    // Add image URL to req object
     req.imageUrl = result.secure_url;
     next();
   } catch (error) {

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const ProjectModal = ({ project, onClose }) => {
-  // Vérifie que le projet est bien défini
   if (!project) return null;
 
   const { title, image, description, skills, github } = project;

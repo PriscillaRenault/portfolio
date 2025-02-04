@@ -23,13 +23,13 @@
       transition: color 0.3s ease-in-out;
 
       &:hover {
-        color: utils.$secondary; // Assombrissement au survol
+        color: utils.$secondary;
       }
     }
   }
 
   &__legals {
-    flex: 1; // Occupe l'autre moitié de l'espace
+    flex: 1;
     max-width: 100%;
     font-size: 1rem;
     text-align: right;
