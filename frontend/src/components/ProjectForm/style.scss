@@ -1,6 +1,7 @@
 @use '../../scss/utils/main.scss' as utils;
 
 .project-form {
+  @include utils.flexbox(column, center, center);
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
@@ -15,13 +16,11 @@
 
   &__group {
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+    @include utils.flexbox(column, flex-start, flex-start);
 
     label {
-      font-weight: bold;
+      @include utils.font('s', utils.$neutral-100, 'bold');
       margin-bottom: 5px;
-      color: utils.$neutral-100;
     }
 
     input,
@@ -39,16 +38,17 @@
     }
 
     textarea {
-      resize: vertical;
-      min-height: 100px;
+      resize: none;
+      height: 120px;
     }
   }
 
-  &__skills {
+  &__skills-issues {
     display: flex;
     gap: 10px;
 
-    input {
+    input,
+    textarea {
       flex: 1;
     }
 

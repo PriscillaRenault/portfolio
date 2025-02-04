@@ -86,20 +86,10 @@ const ProjectForm = () => {
         />
       </div>
 
-      {/* Champ Github */}
-      <div className='project-form__group'>
-        <label htmlFor='github'>Lien Github</label>
-        <input
-          id='github'
-          {...register('github', { required: true })}
-          placeholder='lien github'
-        />
-      </div>
-
       {/* Champ Skills */}
       <div className='project-form__group'>
         <label htmlFor='skills'>Compétences</label>
-        <div className='project-form__skills'>
+        <div className='project-form__skills-issues'>
           <input
             id='skills'
             value={skillInput}
@@ -118,9 +108,9 @@ const ProjectForm = () => {
       </div>
 
       {/* Liste des compétences */}
-      <ul className='project-form__skills-list'>
+      <ul className='project-form__skills-issues--list'>
         {skills.map((skill, index) => (
-          <li key={index} className='project-form__skill-item'>
+          <li key={index} className='project-form__skills-issues--item'>
             {skill}
             <Button Text='Suppr' onClick={() => handleRemoveSkill(index)} />
           </li>
@@ -130,7 +120,7 @@ const ProjectForm = () => {
       {/* Champ Issues */}
       <div className='project-form__group'>
         <label htmlFor='issues'>Problématiques</label>
-        <div className='project-form__skills'>
+        <div className='project-form__skills-issues'>
           <textarea
             id='issues'
             value={issueInput}
@@ -149,14 +139,24 @@ const ProjectForm = () => {
       </div>
 
       {/* Liste des issues */}
-      <ul className='project-form__skills-list'>
+      <ul className='project-form__skills-issues--list'>
         {issues.map((issue, index) => (
-          <li key={index} className='project-form__skill-item'>
+          <li key={index} className='project-form__skills-issues--item'>
             {issue}
             <Button Text='Suppr' onClick={() => handleRemoveIssue(index)} />
           </li>
         ))}
       </ul>
+
+      {/* Champ Github */}
+      <div className='project-form__group'>
+        <label htmlFor='github'>Lien Github</label>
+        <input
+          id='github'
+          {...register('github', { required: true })}
+          placeholder='lien github'
+        />
+      </div>
 
       {/* Bouton Submit */}
       <Button
