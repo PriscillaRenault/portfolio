@@ -61,6 +61,7 @@ const ProjectUpdate = () => {
               <th className='project-table__header-cell'>Image</th>
               <th className='project-table__header-cell'>Description</th>
               <th className='project-table__header-cell'>Compétences</th>
+              <th className='project-table__header-cell'>Problématiques</th>
               <th className='project-table__header-cell'>Github</th>
               <th className='project-table__header-cell'>Actions</th>
             </tr>
