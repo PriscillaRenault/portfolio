@@ -90,6 +90,10 @@ const ProjectUpdate = () => {
                   {project.skills.join(', ')}
                 </td>
                 <td className='project-table__body-row-cell'>
+                  {project.issues.join(', ')}
+                </td>
+
+                <td className='project-table__body-row-cell'>
                   <a
                     href={project.github}
                     target='_blank'

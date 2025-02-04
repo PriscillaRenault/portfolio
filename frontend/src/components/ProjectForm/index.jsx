@@ -41,7 +41,7 @@ const ProjectForm = () => {
 
   // Soumission du formulaire
   const onFormSubmit = (data) => {
-    const formData = { ...data, skills, issue: issues }; // Inclure les issues dans les données envoyées
+    const formData = { ...data, skills, issues };
     handleProjectSubmit(formData);
     reset();
     setSkills([]);
@@ -98,7 +98,7 @@ const ProjectForm = () => {
 
       {/* Champ Skills */}
       <div className='project-form__group'>
-        <label htmlFor='skills'>Ajoutez des compétences</label>
+        <label htmlFor='skills'>Compétences</label>
         <div className='project-form__skills'>
           <input
             id='skills'
