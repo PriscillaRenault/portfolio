@@ -88,7 +88,7 @@ const ProjectForm = () => {
 
       {/* Champ Skills */}
       <div className='project-form__group'>
-        <label htmlFor='skills'>Compétences</label>
+        <label htmlFor='skills'>Technologies</label>
         <div className='project-form__skills-issues'>
           <input
             id='skills'
@@ -121,7 +121,7 @@ const ProjectForm = () => {
       <div className='project-form__group'>
         <label htmlFor='issues'>Problématiques</label>
         <div className='project-form__skills-issues'>
-          <textarea
+          <input
             id='issues'
             value={issueInput}
             onChange={(e) => setIssueInput(e.target.value)}
@@ -152,6 +152,7 @@ const ProjectForm = () => {
       <div className='project-form__group'>
         <label htmlFor='github'>Lien Github</label>
         <input
+          className='project-form__input'
           id='github'
           {...register('github', { required: true })}
           placeholder='lien github'
@@ -162,7 +163,6 @@ const ProjectForm = () => {
       <Button
         Text={isLoading ? 'Envoi en cours...' : 'Envoyer'}
         type='submit'
-        className='project-form__submit-button'
         disabled={isLoading}
       />
 

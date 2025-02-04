@@ -16,6 +16,7 @@ const useProjectSubmit = () => {
         description: data.description,
         github: data.github,
         skills: data.skills,
+        issues: data.issues,
       }),
     );
     formData.append('image', data.image[0]);
