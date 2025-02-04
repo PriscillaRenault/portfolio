@@ -3,12 +3,12 @@ const skillsValue = [
   {
     title: 'Front-end',
     skills: {
-      JavaScript: 80,
-      React: 80,
-      TypeScript: 60,
       HTML5: 95,
       'CSS3 / SCSS': 95,
       Bootstrap: 80,
+      JavaScript: 80,
+      React: 80,
+      TypeScript: 60,
     },
   },
   {
@@ -24,7 +24,11 @@ const skillsValue = [
 
   {
     title: 'Outils',
-    skills: { 'Git / GitHub': 80, 'VS Code': 90, Jira: 80 },
+    skills: {
+      'VS Code': 90,
+      'Git / GitHub': 80,
+      Jira: 80,
+    },
   },
   {
     title: 'Soft Skills',
