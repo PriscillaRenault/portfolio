@@ -27,7 +27,7 @@ const skillsValue = [
     skills: {
       'VS Code': 90,
       'Git / GitHub': 80,
-      Jira: 80,
+      Trello: 80,
     },
   },
   {

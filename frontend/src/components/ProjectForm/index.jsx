@@ -1,10 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import useProjectSubmit from '../../utils/hooks/useProjectSubmit';
+import { fetchProjects } from '../../api';
 import Button from '../Button';
 import './style.scss';
 
-const ProjectForm = () => {
+const ProjectForm = ({ setProjects }) => {
   const { register, handleSubmit, reset } = useForm();
   const { handleProjectSubmit, isLoading, error } = useProjectSubmit();
 
@@ -40,9 +42,11 @@ const ProjectForm = () => {
   };
 
   // Soumission du formulaire
-  const onFormSubmit = (data) => {
+  const onFormSubmit = async (data) => {
     const formData = { ...data, skills, issues };
-    handleProjectSubmit(formData);
+    await handleProjectSubmit(formData);
+    const updatedProjects = await fetchProjects();
+    setProjects(updatedProjects); // Maintenant défini grâce à la prop
     reset();
     setSkills([]);
     setIssues([]);
@@ -169,6 +173,10 @@ const ProjectForm = () => {
       {error && <p className='project-form__error'>{error}</p>}
     </form>
   );
+};
+
+ProjectForm.propTypes = {
+  setProjects: PropTypes.func.isRequired,
 };
 
 export default ProjectForm;

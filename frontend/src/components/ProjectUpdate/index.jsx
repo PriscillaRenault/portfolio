@@ -1,6 +1,7 @@
 import { fetchProjects } from '../../api';
 import { useState, useEffect } from 'react';
 import useDeleteProject from '../../utils/hooks/useDeleteProject';
+import ProjectForm from '../ProjectForm';
 import './style.scss';
 
 const ProjectUpdate = () => {
@@ -42,8 +43,8 @@ const ProjectUpdate = () => {
 
   return (
     <div>
+      <ProjectForm setProjects={setProjects} />
       <h2>Mise à jour des Projets</h2>
-
       {loading && <p>Chargement des projets...</p>}
       {error && <p className='error-message'>Erreur : {error}</p>}
       {deleteError && (
