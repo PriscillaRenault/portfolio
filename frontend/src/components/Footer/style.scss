@@ -1,11 +1,12 @@
 @use '../../scss/utils/main.scss' as utils;
 .footer {
   padding: 40px 20px;
-  @include utils.flexbox(column, center, center);
+  @include utils.flexbox(column, center, center, 2rem);
   max-width: 100%;
+  margin: 1rem auto;
 
   &__contact {
-    @include utils.flexbox(column, center, center);
+    @include utils.flexbox(column, center, center, 1rem);
   }
 
   &__title {
@@ -15,7 +16,7 @@
   }
 
   &__text {
-    font-size: 1.2rem;
+    @include utils.font('s', utils.$neutral-0, 'bold');
     margin-bottom: 8px;
 
     a {
@@ -43,6 +44,10 @@
     &__contact {
       @include utils.flexbox(column, center, start);
     }
+    &__text {
+      @include utils.font('m', utils.$neutral-0, 'bold');
+    }
+
     &__legals {
       @include utils.flexbox(column, center, end);
     }
