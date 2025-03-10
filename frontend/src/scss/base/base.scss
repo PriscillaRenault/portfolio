@@ -119,7 +119,7 @@ h6 {
   font-family: utils.$font-title;
 }
 h2 {
-  @include utils.font('l', utils.$neutral-0, 'bold');
+  @include utils.font('l', utils.$neutral-0, 'medium');
 }
 .border-h2 {
   width: 6rem;

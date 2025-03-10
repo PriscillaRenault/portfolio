@@ -25,7 +25,7 @@
   }
   &__title {
     margin: 1rem;
-    @include utils.font('l', utils.$neutral-0, 'bold');
+    @include utils.font('xl', utils.$neutral-0, 'bold');
     text-align: center;
   }
   &__job {

@@ -7,41 +7,61 @@ const about = () => {
       <div className='border-h2'></div>
       <div className='about__content'>
         <p className='about__content--text'>
-          Salut, moi c&apos;est <span className='highlight'>Priscilla</span> !
-          Passionnée par le développement informatique, j&apos;ai commencé en
-          autodidacte il y a quelques années en réalisant mes premiers projets.
-          Cela m&apos;a permis d&apos;acquérir des compétences en{' '}
           <span className='highlight'>
-            front, back, bases de données, et gestion de projet.
+            👋 Hello, moi c&apos;est Priscilla !
           </span>{' '}
-          Curieuse, je m&apos;intéresse aussi à{' '}
-          <span className='highlight'>
-            la data et à l&apos;informatique de gestion{' '}
-          </span>
-          .{' '}
+          <p />
+          <p className='about__content--text'>
+            Développeuse informatique Passionnée, j&apos;ai commencé en
+            autodidacte avant de valider un{' '}
+            <span className='highlight'>Bac+2 Développeur Web</span> chez
+            OpenClassrooms. j&apos;y ai acquis des compétences en{' '}
+            <span className='highlight'>front-end</span>,
+            <span className='highlight'> back-end</span> et{' '}
+            <span className='highlight'>bases de données </span>
+            que j&apos;affine aujourd&apos;hui en explorant{' '}
+            <span className='highlight'>Java</span> et
+            <span className='highlight'> Python</span> à travers des projets
+            personnels comme des mini-jeux.
+          </p>
+          <p className='about__content--text'>
+            Forte de{' '}
+            <span className='highlight'>
+              15 ans d&apos;expérience dans le commerce
+            </span>{' '}
+            dont{' '}
+            <span className='highlight'>
+              8 comme responsable technico-commerciale{' '}
+            </span>
+            , j&apos;apporte aussi des compétences solides en{' '}
+            <span className='highlight'>
+              communication, organisation et gestion de projet.{' '}
+            </span>
+          </p>
+          <p className='about__content--text'>
+            {' '}
+            <span className='highlight'>
+              🎯 Je recherche actuellement une alternance à partir de septembre
+              2025
+            </span>{' '}
+            dans le cadre d&apos;un{' '}
+            <span className='highlight'>
+              Bac+3 Concepteur Développeur d&apos;Applications{' '}
+            </span>
+            avec l&apos;envie de me spécialiser en{' '}
+            <span className='highlight'>
+              informatique de gestion, traitement des données
+            </span>{' '}
+            et{' '}
+            <span className='highlight'>
+              conception d&apos;applications métier.
+            </span>
+          </p>
         </p>
         <p className='about__content--text'>
-          En 2024, j&apos;ai choisi de renforcer mon apprentissage en intégrant
-          une formation de développeur web chez OpenClassrooms pour structurer
-          et approfondir mes connaissances. Cette{' '}
-          <span className='highlight'>reconversion </span>est
-          l&apos;aboutissement d&apos;une passion que j&apos;ai décidé de
-          transformer en carrière.{' '}
-        </p>
-        <p className='about__content--text'>
-          Avant cela, j&apos;ai passé 15 ans dans le commerce, dont{' '}
-          <span className='highlight'>
-            8 comme responsable technico-commerciale{' '}
-          </span>
-          , où j&apos;ai développé des compétences en communication,
-          organisation et gestion de projet.{' '}
-        </p>
-        <p className='about__content--text'>
-          Ce que j&apos;aime ?{' '}
-          <span className='highlight'>
-            Apprendre, relever des défis techniques et évoluer dans un domaine
-            en constante mutation.
-          </span>
+          🚀 <span className='highlight'>Ce que j&apos;aime ? </span>
+          Apprendre, relever des défis techniques et évoluer dans un domaine en
+          constante mutation.
         </p>
       </div>
     </section>

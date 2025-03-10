@@ -18,7 +18,7 @@ const Header = () => {
         </div>
         <div>
           <h1 className='header__title'>Priscilla RENAULT</h1>
-          <p className='header__job'>Développeuse Web</p>
+          <p className='header__job'>Développeuse Informatique</p>
 
           <div className='header__details'>
             <span>
@@ -29,7 +29,7 @@ const Header = () => {
               <span className='header__details--text'>Le Mans France</span>
             </span>
             <p className='header__details--text'>
-              A la recherche de nouvelles collaborations
+              Recherche Apprentissage Bac+3 <br />
             </p>
           </div>
           <div className='header__socials'>

@@ -10,8 +10,7 @@
   }
 
   &__title {
-    font-size: 2rem;
-    font-weight: bold;
+    @include utils.font('l', utils.$primary, 'medium');
     margin-bottom: 10px;
   }
 

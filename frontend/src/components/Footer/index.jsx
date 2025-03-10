@@ -3,7 +3,7 @@ function Footer() {
   return (
     <footer className='footer'>
       <section className='footer__contact' id='contact'>
-        <h2 className='footer__title'>Me contacter</h2>
+        <h2 className='footer__contact'>Me contacter</h2>
         <p className='footer__title'>Priscilla RENAULT</p>
         <p className='footer__text'>Tel : 07.67.43.72.53</p>
         <p className='footer__text'>

@@ -85,8 +85,7 @@
 
         a {
           text-decoration: none;
-          color: #fff;
-          font-size: 1.5rem;
+          @include utils.font('m', utils.$neutral-0, 'medium');
 
           &:hover,
           &.active {
@@ -127,8 +126,7 @@
 
           a {
             text-decoration: none;
-            color: utils.$neutral-0;
-            font-size: 1.5rem;
+            @include utils.font('l', utils.$neutral-0, 'medium');
             font-family: utils.$font-title;
 
             &:hover,
