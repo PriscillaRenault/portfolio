@@ -4,10 +4,8 @@ const skillsData = [
     skills: {
       HTML5: 95,
       'CSS3 / SCSS': 95,
-      Bootstrap: 80,
       JavaScript: 80,
       React: 80,
-      TypeScript: 60,
     },
   },
   {
