@@ -56,5 +56,9 @@ app.use('/api/projects', projectsRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.get('/', (req, res) => {
+  res.send('API is running 🚀');
+});
+
 // Export app to server.js
 module.exports = app;
