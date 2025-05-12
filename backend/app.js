@@ -25,6 +25,7 @@ const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
       'https://www.priscillarenault.fr',
+      'https://api.priscillarenault.fr',
       'http://localhost:5173',
     ];
 
