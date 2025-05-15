@@ -17,6 +17,7 @@ const skillsData = [
       'RESTful API': 50,
       'SQL, NoSQL': 40,
       Python: 10,
+      Java: 10,
       PHP: 10,
     },
   },
