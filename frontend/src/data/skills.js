@@ -11,11 +11,12 @@ const skillsData = [
   {
     title: 'Back-end',
     skills: {
-      'Node.js': 70,
-      Express: 70,
-      MongoDB: 70,
-      'RESTful API': 60,
-      Java: 20,
+      'Node.js': 50,
+      Express: 50,
+      MongoDB: 50,
+      'RESTful API': 50,
+      'SQL, NoSQL': 40,
+      Python: 10,
       PHP: 10,
     },
   },
@@ -24,8 +25,8 @@ const skillsData = [
     skills: {
       'VS Code': 90,
       Eclipse: 20,
-      'Git / GitHub': 80,
-      'Trello / Jira': 80,
+      'Git / GitHub': 70,
+      'Trello / Jira': 70,
     },
   },
   {
